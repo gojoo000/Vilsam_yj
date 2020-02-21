@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Vilsam | 회원가입</title>
+
+<!-- Favicon  -->
+<link rel="icon"
+	href="../img/core-img/favicon.ico">
+<!-- Core Style CSS-->
+<link rel="stylesheet"
+	href="../css/core-style.css" />
+<link rel="stylesheet"
+	href="../jsp/style.css" />
+<link rel="stylesheet"
+	href="../css/loginst.css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<style>
+
+</style>
+<script>
+/* 	$(function() {
+		$('#btnReset').click(function() {
+			$('#joinform').submit();
+		});
+	});  */
+
+	$(document).ready(function() {
+		$("#btnJoin").click(function() {
+			if ($("#MEMBER_ID").val() == "") {
+				alert("아이디를 입력하세요!");
+				$("#MEMBER_ID").focus();
+				return false;
+			}
+			if ($("#MEMBER_NAME").val() == "") {
+				alert("이름을 입력하세요!");
+				$("#MEMBER_NAME").focus();
+				return false;
+			}
+			if ($("#MEMBER_PW").val() == "") {
+				alert("비밀번호를 입력하세요!");
+				$("#MEMBER_PW").focus();
+			}
+			/* if ($("#MEMBER_EMAIL").val() == "") {
+				alert("메일을 입력하세요!");
+				$("#MEMBER_EMAIL").focus();
+				return false;
+			}
+			if ($("#MEMBER_ZIPCODE").val() == "") {
+				alert("주소를 입력하세요!");
+				$("#MEMBER_ZIPCODE").focus();
+				return false;
+			}
+			if ($("#MEMBER_ADDRESS1").val() == "") {
+				alert("주소를 입력하세요!");
+				$("#MEMBER_ADDRESS1").focus();
+				return false;
+			}
+			if ($("#MEMBER_ADDRESS2").val() == "") {
+				alert("주소를 입력하세요!");
+				$("#MEMBER_ADDRESS2").focus();
+				return false;
+			}
+			if ($("#MEMBER_BIRTHYY").val() == "") {
+				alert("생년월일을 입력하세요!");
+				$("#MEMBER_BIRTHYY").focus();
+				return false;
+			}
+			if ($("#MEMBER_BIRTHMM").val() == "") {
+				alert("생년월일을 입력하세요!");
+				$("#MEMBER_BIRTHMM").focus();
+				return false;
+			}
+			if ($("#MEMBER_BIRTHDD").val() == "") {
+				alert("생년월일을 입력하세요!");
+				$("#MEMBER_BIRTHDD").focus();
+				
+				return false;
+			} 
+			$('#joinform').submit();
+		});
+	});
+</script>
+</head>
+<body>
+	<jsp:include page="/jsp/common/header.jsp" flush="true"></jsp:include>
+	<div id="wrap" class="wrap">
+		<div class="wrap-inner">
+			<!--Signup Section-->
+			<div class="section" id="section2">
+				<div class="form form--signup">
+					<h1 class="alpha">회원가입</h1>
+					<p>Vilsam에 오신것을 환영합니다.</p>
+					<section id="joinformArea">
+						<form name="joinform" action="/Vilsam_yj/memberJoinAction.me" method="post"
+							class="form-wrap" id="joinform">
+							<table>
+								<tr>
+									<td>
+										<label for="MEMBER_ID">아이디 : </label>
+									</td>
+									<td colspan="4">
+										<input type="text" name="MEMBER_ID"	id="MEMBER_ID" class="inputbox" />
+										<a href="#none">중복검사</a>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_PW">비밀번호 : </label></td>
+									<td colspan="4"><input type="password" name="MEMBER_PW"
+										id="MEMBER_PW" class="inputbox" /></td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_NAME">이름 : </label></td>
+									<td colspan="4"><input type="text" name="MEMBER_NAME"
+										id="MEMBER_NAME" class="inputbox" /></td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_GENDER">성별 : </label></td>
+									<td><input type="radio" name="MEMBER_GENDER" value="남"
+										checked="checked" id="MEMBER_GENDER" class="inputbox" />남자
+									<td><input type="radio" name="MEMBER_GENDER" value="여"
+										class="inputbox" />여자</td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_EMAIL">이메일 주소 : </label></td>
+									<td colspan="4"><input type="text" name="MEMBER_EMAIL"
+										id="MEMBER_EMAIL" class="inputbox" /></td>
+								</tr>
+								<tr>
+
+									<td><label for="MEMBER_ZIPCODE">우편번호 : </label></td>
+									<td><input class="form-control" name="MEMBER_ZIPCODE"
+										id="MEMBER_ZIPCODE" type="text" readonly="readonly"></td>
+									<td>
+										<button type="button" class="btn btn-default"
+											onclick="execPostCode();">
+											<i class="fa fa-search"></i> 우편번호 찾기
+										</button>
+									</td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_ADDRESS">도로명주소 : </label></td>
+									<td colspan="4"><input type="text" name="MEMBER_ADDRESS1"
+										id="MEMBER_ADDRESS1" class="inputbox" /></td>
+
+								</tr>
+								<tr>
+									<td><label for="MEMBER_ADDRESS">상세주소 : </label></td>
+									<td colspan="4"><input type="text" name="MEMBER_ADDRESS2"
+										id="MEMBER_ADDRESS2" class="inputbox" /></td>
+
+								</tr>
+								<tr>
+									<td><label for="MEMBER_PHONECD">연락처 : </label></td>
+									<td><select class="inputbox" id="MEMBER_PHONECD"
+										name="MEMBER_PHONECD" required="required">
+											<option value="010">010</option>
+											<option value="011">011</option>
+											<option value="016">016</option>
+											<option value="017">017</option>
+											<option value="019">019</option>
+									</select></td>
+									<td colspan="3"><input type="text" name="MEMBER_PHONENUM"
+										size="6" id="MEMBER_PHONENUM" maxlength="10" class="inputbox"></td>
+								</tr>
+								<tr>
+									<td><label for="MEMBER_BIRTHYY">생년월일 : </label></td>
+									<td><select class="inputbox" id="MEMBER_BIRTHYY"
+										name="MEMBER_BIRTHYY" required="required">
+											<option value="1985">1985</option>
+											<option value="1986">1986</option>
+											<option value="1987">1987</option>
+											<option value="1988">1988</option>
+											<option value="1989">1989</option>
+											<option value="1990">1990</option>
+											<option value="1991">1991</option>
+											<option value="1992">1992</option>
+											<option value="1993">1993</option>
+											<option value="1994">1994</option>
+											<option value="1995">1995</option>
+											<option value="1996">1996</option>
+											<option value="1997">1997</option>
+											<option value="1998">1998</option>
+											<option value="1999">1999</option>
+											<option value="2000">2000</option>
+											<option value="2001">2001</option>
+											<option value="2002">2002</option>
+											<option value="2003">2003</option>
+											<option value="2004">2004</option>
+											<option value="2005">2005</option>
+											<option value="2006">2006</option>
+											<option value="2007">2007</option>
+											<option value="2008">2008</option>
+											<option value="2009">2009</option>
+											<option value="2010">2010</option>
+											<option value="2011">2011</option>
+											<option value="2012">2012</option>
+									</select></td>
+									<td><input type="text" name="MEMBER_BIRTHMM" size="6"
+										id="MEMBER_BIRTHMM" maxlength="10" class="inputbox"></td>
+									<td colspan="3"><input type="text" name="MEMBER_BIRTHDD"
+										size="6" id="MEMBER_BIRTHDD" maxlength="10" class="inputbox"></td>
+								</tr>
+								<tr>
+									<td colspan="2"><a class="btst" id="btnJoin">회원가입</a></td>
+									<td colspan="2"><a class="btst" id="btnReset">다시작성</a></td>
+								</tr>
+							</table>
+						</form>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div>
+	<jsp:include page="/jsp/common/footer.jsp" flush="true"></jsp:include>
+</body>
+</html>
