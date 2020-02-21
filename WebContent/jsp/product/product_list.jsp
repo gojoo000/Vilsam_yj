@@ -19,33 +19,12 @@
 <head>
 <script language="javascript">
 	function showPopup(num) {
-		window.open("/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
+		window.open("/Vilsam_yj/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
 	}
 	function showSellPopup(num) {
-		window.open("/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
+		window.open("/Vilsam_yj/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
 	}
 </script>
-<!-- Favicon  -->
-<link rel="icon"
-	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
-<!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
 <style>
 table {
 	text-align: center;
@@ -89,8 +68,8 @@ table td, tr {
 								<td>${product.product_name}</td>
 								<td>${product.product_price}</td>
 								<td>${product.product_jaego}</td>
-								<td><a href="/productModifyForm.pro?PRODUCT_NUM=${product.product_num}">수정</a>
-									|<a href="/productDeletePro.pro?PRODUCT_NUM=${product.product_num}">삭제</a>
+								<td><a href="/Vilsam_yj/productModifyForm.pro?PRODUCT_NUM=${product.product_num}">수정</a>
+									|<a href="/Vilsam_yj/productDeletePro.pro?PRODUCT_NUM=${product.product_num}">삭제</a>
 								</td>
 								<td>
 									<button type="button" onclick="showPopup('${product.product_num}');">입출고 관리</button>

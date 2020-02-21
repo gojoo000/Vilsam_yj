@@ -5,9 +5,7 @@
 <%@page import="vo.ProductBean"%>
 <%
  	ArrayList<ProductBean> articleList = null;
-
 	if (request.getAttribute("articleList") != null) {
-		
 		articleList = (ArrayList<ProductBean>) request.getAttribute("articleList");
 	} else {
 		response.sendRedirect("/productList.pro");
@@ -26,7 +24,7 @@
 <title>Vilsam | Home</title>
 
 <!-- Favicon  -->
-<link rel="icon" href="/img/core-img/favicon.ico">
+<link rel="icon" href="/Vilsam_yj/img/core-img/favicon.ico">
 
 <!-- Core Style CSS-->
 <link rel="stylesheet"
@@ -59,8 +57,8 @@
 			<c:forEach var="product" items="${articleList}">
 				<!-- Single Catagory -->
 				<div class="single-products-catagory clearfix">
-					<a href="/productDetail.pro?product_num=${product.product_num }">
-						<img src="/upload/${product.product_image }" alt="">
+					<a href="/Vilsam_yj/productDetail.pro?product_num=${product.product_num }">
+						<img id="PRODUCT_IMAGE" src="/Vilsam_yj/upload/${product.product_image }" alt="">
 						<!-- Hover Content -->
 						<div class="hover-content">
 							<div class="line"></div>

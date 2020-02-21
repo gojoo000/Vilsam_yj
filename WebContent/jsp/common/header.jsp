@@ -20,25 +20,25 @@
 <script src="${pageContext.request.contextPath }/js/newjs.js"></script>
 <script type="text/javascript">
 	function goPage() {
-		location.href = "/jsp/loginForm.jsp";
+		location.href = "/Vilsam_yj/jsp/loginForm.jsp";
 	}
 	function goJoin() {
-		location.href = "/jsp/joinForm.jsp";
+		location.href = "/Vilsam_yj/jsp/joinForm.jsp";
 	}
 	function goLogout() {
-		location.href = "/jsp/logoutForm.jsp";
+		location.href = "/Vilsam_yj/jsp/logoutForm.jsp";
 	}
 	function gonotice() {
-		location.href = "/jsp/notice/qna_notice_list.jsp";
+		location.href = "/Vilsam_yj/jsp/notice/qna_notice_list.jsp";
 	}
 	function gorent() {
-		location.href = "/jsp/notice/qna_space_list.jsp";
+		location.href = "/Vilsam_yj/jsp/notice/qna_space_list.jsp";
 	}
 	function goAdmin() {
-		location.href = "/memberListAction.me";
+		location.href = "/Vilsam_yj/memberListAction.me";
 	}
 	function goMyp() {
-		location.href = "/memberMypageAction.me?MEMBER_ID=${MEMBER_ID}";
+		location.href = "/Vilsam_yj/memberMypageAction.me?MEMBER_ID=${MEMBER_ID}";
 	}
 </script>
 <title>Document</title>
@@ -50,28 +50,29 @@
 			style="text-align: center; margin-top: 25px; font-weight: bold; text-decoration: none;">
 			<ul class="usernav">
 			<c:choose>
-<c:when test="${MEMBER_ID eq null }" >
+			<c:when test="${MEMBER_ID eq null }" >
 				<li><a onclick="javascript:goPage()">Login&nbsp;&nbsp;&nbsp;|</a></li>
 				<li><a onclick="javascript:goJoin()">무료회원가입&nbsp;&nbsp;&nbsp;|</a></li>
-</c:when>
-<c:otherwise>
+			</c:when>
+			<c:otherwise>
 				<li>${MEMBER_ID }님</li>
 				<c:choose>
-				<c:when test="${MEMBER_TYPE eq 'admin' }">
+				<c:when test="${MEMBER_TYPE eq 'admin'}">
 				<li><a onclick="javascript:goAdmin()">관리자 페이지</a></li>
 				</c:when>
 				<c:otherwise>
 				<li><a onclick="javascript:goMyp()">마이페이지</a></li></c:otherwise>
 				</c:choose>
 				<li><a onclick="javascript:goLogout()">로그아웃</a></li>
-</c:otherwise>
-</c:choose>
+			</c:otherwise>
+			</c:choose>
 
 			</ul>
 		</div>
 		<div class="logo">
-			<a href="/index.jsp"><img
-				src="/img/core-img/logo.png" /></a>
+			<a href="/Vilsam_yj/productList.pro">
+				<img src="/Vilsam_yj/img/core-img/logo.png" />
+			</a>
 		</div>
 
 		</header>
@@ -80,13 +81,13 @@
 		<nav class="menu">
 		<ul>
 			<li class="active"><a href="#">Home</a></li>
-			<!-- <li class=""><a href="#">Products</a></li> -->
-			<li><a href="/jsp/notice/NoticeList.jsp">공지사항</a></li>
-			<li><a href="/jsp/space/SpaceList.jsp">공간대여</a></li> 
+			<li><a href="/Vilsam_yj/jsp/notice/NoticeList.jsp">공지사항</a></li>
+			<li><a href="/Vilsam_yj/jsp/room/RoomList.jsp">공간대여</a></li> 
 		</ul>
 		</nav>
 	</div>
 
-
+	<!-- 자바스크립트 라이브러리 -->
+	<script src="https://kit.fontawesome.com/1773caa337.js" crossorigin="anonymous"></script>
 </body>
 </html>

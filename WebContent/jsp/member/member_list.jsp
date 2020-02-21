@@ -12,29 +12,6 @@
 <head>
 <meta charset="UTF-8">
 <title>회원관리 시스템 관리자모드(회원 목록 보기)</title>
-<!-- Favicon  -->
-<link rel="icon"
-	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
-<!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
 <%
 /* 		String msg = (String)session.getAttribute("msg");
 	
@@ -96,8 +73,10 @@ table tr, td {
 								<col width="10%">
 							</colgroup>
 							<thead>
-							<td><a href="/memberViewAction.me?MEMBER_ID=${member.MEMBER_ID}">
-											${member.MEMBER_ID} </a></td>
+							<td><a href="/Vilsam_yj/memberViewAction.me?MEMBER_ID=${member.MEMBER_ID}">
+									${member.MEMBER_ID}
+								</a>
+							</td>
 								<tr>
 									<th>ID</th>
 									<th>이름</th>
@@ -110,8 +89,6 @@ table tr, td {
 							<tbody>
 							
 							</tbody>
-						
-							
 							<c:forEach var="member" items="${memberList}">
 								<tr>
 									<td>${member.MEMBER_ID}</td>
@@ -121,7 +98,7 @@ table tr, td {
 									<td>${member.CRT_DT}</td>
 									<td>${member.MEMBER_TYPE}</td>
 									<td>
-										<a href="/memberViewAction.me?MEMBER_ID=${member.MEMBER_ID}">[수정]</a>
+										<a href="/Vilsam_yj/memberViewAction.me?MEMBER_ID=${member.MEMBER_ID}">[수정]</a>
 										<a href="">[탈퇴]</a>
 									</td>
 								</tr>
@@ -135,13 +112,13 @@ table tr, td {
 						<%
 							if (type.equals("admin")) {
 						%>
-						<a href="/sellList.se" class="btst">주문내역 보기</a>
+						<a href="/Vilsam_yj/sellList.se" class="btst">주문내역 보기</a>
 						<br>
 						<br>
 						<%
 							} else {
 						%>
-						<a href="/sellList.se?id=${member.MEMBER_ID}" class="btst">내 주문내역</a><br>
+						<a href="/Vilsam_yj/sellList.se?id=${member.MEMBER_ID}" class="btst">내 주문내역</a><br>
 						<br>
 						<%
 							}
@@ -151,8 +128,8 @@ table tr, td {
 						<br>
 						<h1 class="alpha">상품리스트 보기</h1>
 						<br> <br> 
-							<a href="/adproductList.pro" class="btst">상품목록</a> 
-							<a href="/productWriteForm.pro" class="btst">상품등록</a>
+							<a href="/Vilsam_yj/adproductList.pro" class="btst">상품목록</a> 
+							<a href="/Vilsam_yj/productWriteForm.pro" class="btst">상품등록</a>
 					</section>
 				</div>
 

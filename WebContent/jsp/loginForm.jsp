@@ -61,7 +61,7 @@ $(function(){
     });
     
     $('#btnJoin').click(function(){    	
-    	location.href = "/jsp/joinForm.jsp";
+    	location.href = "/Vilsam_yj/jsp/joinForm.jsp";
     	/* $('#loginform').submit(); */
     });
     

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	session.invalidate();
-	response.sendRedirect("/index.jsp");
+	response.sendRedirect("/Vilsam_yj/productList.pro");
 %>
 <!DOCTYPE html>
 <html>

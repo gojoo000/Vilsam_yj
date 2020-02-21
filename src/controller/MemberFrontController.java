@@ -33,7 +33,7 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 		System.out.println("@@@@ "+command);
 		
 		
-		if (command.equals("/Vilsam_yj/memberLogin.me")) {
+		if (command.equals("/memberLogin.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			forward.setPath("/jsp/loginForm.jsp");
@@ -41,14 +41,14 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("/jsp/joinForm.jsp");
-		} else if (command.equals("/Vilsam_yj/memberLoginAction.me")) { 
+		} else if (command.equals("/memberLoginAction.me")) { 
 			action = new MemberLoginAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/Vilsam_yj/memberJoinAction.me")) {
+		} else if (command.equals("/memberJoinAction.me")) {
 			action = new MemberJoinAction();
 			try {
 				forward = action.execute(request, response);

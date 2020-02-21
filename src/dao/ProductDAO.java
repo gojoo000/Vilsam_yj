@@ -42,7 +42,7 @@ public class ProductDAO {
 
 		try {
 			System.out.println("getConnection");
-			pstmt = con.prepareStatement("SELECT count(*) FROM product"); // 전체 글 갯수 구하기
+			pstmt = con.prepareStatement("SELECT count(*) FROM TB_PRODUCT"); // 전체 글 갯수 구하기
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
@@ -102,17 +102,16 @@ public class ProductDAO {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		/* String sql="select * from product"; */
-		String sql = "SELECT P.PRODUCT_NUM,P.PRODUCT_IMAGE,P.PRODUCT_CATEGORY,P.PRODUCT_NAME, P.PRODUCT_PRICE";
+
+		String sql = "SELECT * FROM TB_PRODUCT";
+		/*String sql = "SELECT P.PRODUCT_NUM,P.PRODUCT_IMAGE,P.PRODUCT_CATEGORY,P.PRODUCT_NAME, P.PRODUCT_PRICE";
 				sql += "	,SUM(INQTY) AS 'INQTY', SUM(OUTQTY) AS 'OUTQTY' ";
 				sql += "FROM TB_PRODUCT P, TB_PDSTOCK S ";
 				sql += "WHERE P.PRODUCT_NUM=S.PRODUCT_NUM ";
-				sql += "GROUP BY P.PRODUCT_NUM";
+				sql += "GROUP BY P.PRODUCT_NUM";*/
 		ArrayList<ProductBean> articleList = new ArrayList<ProductBean>();
 		ProductBean product = null;
-		/*
-		 * int startrow=(page-1)*10; //읽기 시작할 row 번호..
-		 */
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -123,19 +122,17 @@ public class ProductDAO {
 				product.setProduct_image(rs.getString("PRODUCT_IMAGE"));
 				product.setProduct_name(rs.getString("PRODUCT_NAME"));
 				product.setProduct_price(rs.getInt("PRODUCT_PRICE"));
-				product.setProduct_jaego((rs.getInt("INQTY") - rs.getInt("OUTQTY")));
+				/*product.setProduct_jaego((rs.getInt("INQTY") - rs.getInt("OUTQTY")));*/
 				product.setProduct_category(rs.getString("PRODUCT_CATEGORY"));
 
 				articleList.add(product);
 			}
-
 		} catch (Exception ex) {
 			System.out.println("getList 에러 : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-
 		return articleList;
 
 	}
@@ -146,9 +143,9 @@ public class ProductDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ProductBean productBean = null;
-		String sql = "select product.PRODUCT_NUM,PRODUCT_IMAGE, PRODUCT_CATEGORY,PRODUCT_NAME,PRODUCT_PRICE, SUM(INQTY) AS 'INQTY', ";
-		sql += " SUM(OUTQTY) AS 'OUTQTY' FROM product JOIN pdstock";
-		sql += " ON product.PRODUCT_NUM = pdstock.PRODUCT_NUM WHERE product.PRODUCT_NUM =? GROUP BY pdstock.PRODUCT_NUM";
+		String sql = "select TB_PRODUCT.PRODUCT_NUM,PRODUCT_IMAGE, PRODUCT_CATEGORY,PRODUCT_NAME,PRODUCT_PRICE, SUM(INQTY) AS 'INQTY', ";
+		sql += " SUM(OUTQTY) AS 'OUTQTY' FROM TB_PRODUCT JOIN TB_PDSTOCK";
+		sql += " ON TB_PDSTOCK.PRODUCT_NUM = TB_PDSTOCK.PRODUCT_NUM WHERE TB_PDSTOCK.PRODUCT_NUM =? GROUP BY TB_PDSTOCK.PRODUCT_NUM";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, product_num);
@@ -176,41 +173,12 @@ public class ProductDAO {
 
 	}
 
-	/*
-	 * public ProductBean selectProduct(String PRODUCT_NUM) throws SQLException {
-	 * Connection conn = null; PreparedStatement ps = null; ResultSet rs = null;
-	 * 
-	 * String sql = "select * from product where PRODUCT_NUM=?";
-	 * 
-	 * try { conn = getConnection(); ps = conn.prepareStatement(sql);
-	 * ps.setString(1, PRODUCT_NUM); rs = ps.executeQuery(); ArrayList<ProductBean>
-	 * pdtos = this.makeArrayList(rs); ProductBean pdto = null; if (pdtos != null &&
-	 * pdtos.size() != 0) { pdto = pdtos.get(0); } // if return pdto; } finally { if
-	 * (rs != null) rs.close(); if (ps != null) ps.close(); if (conn != null)
-	 * conn.close(); } }// selectProduct()
-	 */
-
-	/*
-	 * public ArrayList<ProductBean> makeArrayList(ResultSet rs) throws SQLException
-	 * { ArrayList<ProductBean> pdbean = new ArrayList<ProductBean>();
-	 * 
-	 * while (rs.next()) { String PRODUCT_NUM = rs.getString(1); String
-	 * PRODUCT_IMAGE = rs.getString(2); String PRODUCT_CATEGORY = rs.getString(3);
-	 * String PRODUCT_NAME = rs.getString(4); int PRODUCT_PRICE = rs.getInt(5);
-	 * ProductBean pdto = new ProductBean(PRODUCT_NUM, PRODUCT_IMAGE,
-	 * PRODUCT_NAME,PRODUCT_PRICE,PRODUCT_CATEGORY ); pdbean.add(pdto);
-	 * 
-	 * } // while End
-	 * 
-	 * return pdbean; }// makeArrayList()
-	 */
-
 	// 상품정보 수정하기
 	public int updateProduct(ProductBean article) {
 
 		int updateCount = 0;
 		PreparedStatement pstmt = null;
-		String sql = "update product set PRODUCT_NAME=?,PRODUCT_PRICE=?,PRODUCT_CATEGORY=? where PRODUCT_NUM=?";
+		String sql = "update TB_PRODUCT set PRODUCT_NAME=?,PRODUCT_PRICE=?,PRODUCT_CATEGORY=? where PRODUCT_NUM=?";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -233,7 +201,7 @@ public class ProductDAO {
 		//System.out.println(con);
 
 		PreparedStatement pstmt = null;
-		String sql = "delete from product where PRODUCT_NUM=?";
+		String sql = "delete from TB_PRODUCT where PRODUCT_NUM=?";
 		int deleteCount = 0;
 		try {
 			pstmt = con.prepareStatement(sql);

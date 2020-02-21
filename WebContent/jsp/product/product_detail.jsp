@@ -83,8 +83,8 @@ border-radius:20px;
 						<!-- Product Meta Data -->
 						<div class="product-meta-data">
 							<form action="/sellWritePro.se">
-								<img class="product-image"
-									src="/upload/${product.product_image }"> <br>
+								<img id="PRODUCT_IMAGE"
+									src="/Vilsam_yj/upload/${product.product_image }"> <br>
 								<br> <input type="hidden" id="PRODUCT_NUM"
 									name="PRODUCT_NUM" value="${product.product_num }"> <input
 									type="hidden" id="MEMBER_ID" name="MEMBER_ID"
@@ -93,9 +93,9 @@ border-radius:20px;
 								<div class="line"></div>
 								가격
 								<p class="product-price">&nbsp;&nbsp;&#8361; ${product.product_price }</p>
-								<br> <a href="#">
+								<br>
 									<h6>${product.product_name }</h6>
-								</a><br>
+								<br>
 								<p class="product_jaego">현재 재고 :
 									&nbsp;${product.product_jaego }개 남음</p>
 						</div>

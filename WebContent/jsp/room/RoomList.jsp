@@ -17,35 +17,6 @@
 <title>Vilsam | 공간리스트</title>
 
 <head>
-<!-- <script language="javascript">
-	function showPopup(num) {
-		window.open("/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
-	}
-	function showSellPopup(num) {
-		window.open("/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
-	}
-</script> -->
-<!-- Favicon  -->
-<link rel="icon"
-	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
-<!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
 <style>
 table {
 	text-align: center;

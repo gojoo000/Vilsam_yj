@@ -57,6 +57,4 @@ public class ProductBean {
 	public void setProduct_category(String product_category) {
 		this.product_category = product_category;
 	}
-
-
 }
