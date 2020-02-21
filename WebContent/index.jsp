@@ -23,10 +23,10 @@
 <!-- Title  -->
 <title>Vilsam | Home</title>
 <!-- Core Style CSS-->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/Vilsam_yj/css/core-style.css" />
+<link rel="stylesheet" href="/Vilsam_yj/jsp/style.css" />
+<link rel="stylesheet" href="/Vilsam_yj/css/loginst.css" />
+<link rel="stylesheet" href="/Vilsam_yj/css/bootstrap.min.css" />
 </head>
 
 <body>
