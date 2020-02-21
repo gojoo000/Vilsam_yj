@@ -31,7 +31,7 @@ public class RoomDAO {
 		this.con = con;
 	}
 
-	// 글의 개수 구하기
+	// 방 개수 세기
 	public int selectListCount() {
 		int listCount = 0;
 		PreparedStatement pstmt = null;
@@ -39,14 +39,14 @@ public class RoomDAO {
 
 		try {
 			System.out.println("getConnection");
-			pstmt = con.prepareStatement("SELECT count(*) FROM TB_ROOM"); // 전체 글 갯수 구하기
+			pstmt = con.prepareStatement("SELECT count(*) FROM TB_ROOM");
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				listCount = rs.getInt(1); // 전체 글 갯수를 listCount에 할당(저장)
+				listCount = rs.getInt(1);
 			}
 		} catch (Exception e) {
-			System.out.println("getListCount 에러 : " + e);
+			System.out.println("getListCount Error: " + e);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -54,7 +54,7 @@ public class RoomDAO {
 		return listCount;
 	}
 
-	// 공간 등록.
+	// 怨듦컙 �벑濡�.
 	public int insertArticle(RoomBean article) {
 
 		PreparedStatement pstmt = null;
@@ -84,7 +84,7 @@ public class RoomDAO {
 			insertCount = pstmt.executeUpdate();
 
 		} catch (Exception ex) {
-			System.out.println("RoomInsert 에러 : " + ex);
+			System.out.println("RoomInsert Error : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -94,12 +94,11 @@ public class RoomDAO {
 
 	}
 
-	// 공간목록 보기.
+	// 방 리스트
 	public ArrayList<RoomBean> selectArticleList() {
 
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		/* String sql="select * from room"; */
 		String sql = "SELECT * FROM TB_ROOM ";
 		ArrayList<RoomBean> articleList = new ArrayList<RoomBean>();
 		RoomBean room = null;
@@ -119,7 +118,7 @@ public class RoomDAO {
 			}
 
 		} catch (Exception ex) {
-			System.out.println("getList 에러 : " + ex);
+			System.out.println("getList Error : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -129,7 +128,7 @@ public class RoomDAO {
 
 	}
 
-	// 글 내용 보기.
+	// 방 정보 조회
 	public RoomBean selectRoom(int room_num) throws SQLException {
 
 		PreparedStatement pstmt = null;
@@ -153,7 +152,7 @@ public class RoomDAO {
 			}
 			System.out.println(room_num);
 		} catch (Exception ex) {
-			System.out.println("getDetail 에러 : " + ex);
+			System.out.println("getDetail Error : " + ex);
 		} finally {
 			rs.close();
 			pstmt.close();
@@ -164,7 +163,7 @@ public class RoomDAO {
 	}
 
 
-	// 공간정보 수정하기
+	// 방 정보 수정
 	public int updateRoom(RoomBean article) {
 
 		int updateCount = 0;
@@ -180,7 +179,7 @@ public class RoomDAO {
 			pstmt.setInt(5, article.getRoom_num());
 			updateCount = pstmt.executeUpdate();
 		} catch (Exception ex) {
-			System.out.println("공간수정 Modify 에러 : " + ex);
+			System.out.println("Room Info Modify Error : " + ex);
 		} finally {
 			close(pstmt);
 		}
@@ -188,7 +187,7 @@ public class RoomDAO {
 		return updateCount;
 	}
 
-	// 공간삭제
+	// 방 삭제
 	public int delProd(String ROOM_NUM) {
 		//System.out.println(con);
 
@@ -200,7 +199,7 @@ public class RoomDAO {
 			pstmt.setString(1, ROOM_NUM);
 			deleteCount = pstmt.executeUpdate();
 		} catch (Exception ex) {
-			System.out.println("공간Delete 에러 : " + ex);
+			System.out.println("RoomDelete Error : " + ex);
 		} finally {
 			close(pstmt);
 		}

@@ -40,7 +40,7 @@ public class StockWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('ë“±ë¡ì™„ë£Œ!')");
+			out.println("alert('Àç°í µî·Ï¿Ï·á!')");
 			out.println("self.close();");
 			out.println("</script>");
 		}

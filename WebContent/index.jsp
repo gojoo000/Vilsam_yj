@@ -22,31 +22,11 @@
 
 <!-- Title  -->
 <title>Vilsam | Home</title>
-
-<!-- Favicon  -->
-<link rel="icon" href="/Vilsam_yj/img/core-img/favicon.ico">
-
 <!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/bootstrap.min.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/bootstrap.min.css" />
 </head>
 
 <body>

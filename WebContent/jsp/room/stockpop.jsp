@@ -44,29 +44,11 @@ table {
 	 });
 	 }); */
 </script>
-   <!-- Favicon  -->
-    <link rel="icon" href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
-<!-- Core Style CSS-->
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
-
 </head>
 <body>
 	<div id="wrap">
 		<c:set var="product" value="${articleList}" />
-		<form id="stockApply" action="/stockWritePro.st" method="post">
+		<form id="stockApply" action="/Vilsam_yj/stockWritePro.st" method="post">
 			<table>
 				<h1>재고관리</h1>
 				<h2>
@@ -85,7 +67,6 @@ table {
 				<tr>
 					<p>날짜</p>
 					<td><select class="inputbox" required="required" id="DATEYY" name="DATEYY">
-							<option value="2018">2018</option>
 							<option value="2019">2019</option>
 							<option value="2020">2020</option>
 					</select></td>

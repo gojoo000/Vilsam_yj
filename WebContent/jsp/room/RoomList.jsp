@@ -9,7 +9,7 @@
 	if (request.getAttribute("articleList") != null) {
 		articleList = (ArrayList<RoomBean>) request.getAttribute("articleList");
 	} else {
-		response.sendRedirect("/Vilsam_yj/roomtList.pro");
+		response.sendRedirect("/Vilsam_yj/roomtList.room");
 	}
 %>
 <html>

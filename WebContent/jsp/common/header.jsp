@@ -11,12 +11,9 @@
 <link rel="icon" href="/Vilsam_yj/img/core-img/favicon.ico" />
 
 <!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
 <script src="${pageContext.request.contextPath }/js/newjs.js"></script>
 <script type="text/javascript">
 	function goPage() {

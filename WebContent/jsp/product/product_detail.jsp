@@ -17,51 +17,21 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!-- Title  -->
-<title>Product Details</title>
-
-<!-- Favicon  -->
-<link rel="icon"
-	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
-<!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="${pageContext.request.contextPath }/js/newjs.js"></script>
-<!-- Popper js -->
-<script src="${pageContext.request.contextPath }/js/popper.min.js"></script>
-<!-- Bootstrap js -->
-<script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
-<!-- Plugins js -->
-<script src="${pageContext.request.contextPath }/js/plugins.js"></script>
-<!-- Active js -->
-<script src="${pageContext.request.contextPath }/js/active.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <style>
-.main-content-wrapper{
-	width:100%;
-}
-.single-product-area{
-border-radius:20px;
-	margin: 0 auto;
-	background-color:white;
-}
-.container-fluid{
-		margin-top:2%;
-}
-.product-meta-data{
-	
-}
+	.main-content-wrapper{
+		width:100%;
+	}
+	.single-product-area{
+	border-radius:20px;
+		margin: 0 auto;
+		background-color:white;
+	}
+	.container-fluid{
+			margin-top:2%;
+	}
+	.product-meta-data{
+		
+	}
 </style>
 
 </head>
@@ -75,6 +45,7 @@ border-radius:20px;
 
 		<!-- Mobile Nav (max width 767px)-->
 		<%-- <c:set var="product" value="${articleList}" /> --%>
+		<%-- <c:set var="productBean" value="${articleList}" /> --%>
 		<!-- Product Details Area Start -->
 		<div class="single-product-area">
 			<div class="container-fluid">
@@ -82,7 +53,7 @@ border-radius:20px;
 					<div class="single_product_desc">
 						<!-- Product Meta Data -->
 						<div class="product-meta-data">
-							<form action="/sellWritePro.se">
+							<form action="/Vilsam_yj/sellWritePro.se">
 								<img id="PRODUCT_IMAGE"
 									src="/Vilsam_yj/upload/${product.product_image }"> <br>
 								<br> <input type="hidden" id="PRODUCT_NUM"
@@ -127,7 +98,6 @@ border-radius:20px;
 				</div>
 			</div>
 		</div>
-
 		<!-- Product Details Area End -->
 	</div>
 

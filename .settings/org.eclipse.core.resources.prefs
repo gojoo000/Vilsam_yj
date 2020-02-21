@@ -1,6 +1,7 @@
 eclipse.preferences.version=1
 encoding//src/controller/MemberFrontController.java=UTF-8
 encoding//src/dao/MemberDAO.java=UTF-8
+encoding//src/dao/RoomDAO.java=UTF-8
 encoding//src/dao/SellDAO.java=UTF-8
 encoding//src/member/action/MemberDeleteAction.java=UTF-8
 encoding//src/member/action/MemberModifyAction.java=UTF-8
