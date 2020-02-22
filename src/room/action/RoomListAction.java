@@ -31,7 +31,7 @@ public class RoomListAction implements Action {
 		request.setAttribute("articleList", articleList);
 		System.out.println(articleList);
 		ActionForward forward = new ActionForward();
-		forward.setPath("/index.jsp");
+		forward.setPath("/jsp/room/RoomList.jsp");
 		return forward;
 	}
 }

@@ -37,6 +37,12 @@
 	function goMyp() {
 		location.href = "/Vilsam_yj/memberMypageAction.me?MEMBER_ID=${MEMBER_ID}";
 	}
+	function goRoomList() {
+		location.href = "/Vilsam_yj/roomList.room";
+	}
+	function goHome() {
+		location.href = "/Vilsam_yj/productList.pro";
+	}
 </script>
 <title>Document</title>
 </head>
@@ -78,8 +84,8 @@
 		<nav class="menu">
 		<ul>
 			<li class="active"><a href="#">Home</a></li>
-			<li><a href="/Vilsam_yj/jsp/notice/NoticeList.jsp">공지사항</a></li>
-			<li><a href="/Vilsam_yj/jsp/room/RoomList.jsp">공간대여</a></li> 
+			<!-- <li><a href="/Vilsam_yj/jsp/notice/NoticeList.jsp">공지사항</a></li> -->
+			<li><a onclick="javascript:goRoomList()">공간대여</a></li>
 		</ul>
 		</nav>
 	</div>
