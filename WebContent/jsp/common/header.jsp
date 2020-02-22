@@ -16,6 +16,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
 <script src="${pageContext.request.contextPath }/js/newjs.js"></script>
 <script type="text/javascript">
+	function goHome() {
+		location.href = "/Vilsam_yj/productList.pro";
+	}	
 	function goPage() {
 		location.href = "/Vilsam_yj/jsp/loginForm.jsp";
 	}
@@ -73,7 +76,7 @@
 			</ul>
 		</div>
 		<div class="logo">
-			<a href="/Vilsam_yj/productList.pro">
+			<a onclick="javascript:goHome()">
 				<img src="/Vilsam_yj/img/core-img/logo.png" />
 			</a>
 		</div>
@@ -83,7 +86,9 @@
 		<div class="xs-menu-cont"></div>
 		<nav class="menu">
 		<ul>
-			<li class="active"><a href="#">Home</a></li>
+			<li>
+				<a onclick="javascript:goHome()">상품목록</a>
+			</li>
 			<!-- <li><a href="/Vilsam_yj/jsp/notice/NoticeList.jsp">공지사항</a></li> -->
 			<li><a onclick="javascript:goRoomList()">공간대여</a></li>
 		</ul>

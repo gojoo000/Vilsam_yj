@@ -58,7 +58,7 @@ color: cornsilk;
 .container {
 	margin: 0 auto;
 	display: table;
-	max-width: 90%;
+	max-width: 100%;
 	width: 100%;
 }
 .container:after, .container:before {

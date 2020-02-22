@@ -57,9 +57,12 @@
 										id="ROOM_PRICE" required="required" class="inputbox" /></td>
 								</tr>
 								<tr>
-									<td class=""><label for="ROOM_SIZE">공간면적</label></td>
-									<td class=""><input name="ROOM_SIZE" type="text"
-										id="ROOM_SIZE" required="required" class="inputbox" /></td>
+									<td class="">
+										<label for="ROOM_SIZE">공간면적</label>
+									</td>
+									<td class="">
+										<input name="ROOM_SIZE" type="text" id="ROOM_SIZE" required="required" class="inputbox" />
+									</td>
 								</tr>
 								<tr>
 									<td class=""><label for="ROOM_IMAGE"> 파일 첨부 </label></td>

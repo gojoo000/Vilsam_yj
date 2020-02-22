@@ -19,7 +19,7 @@ import vo.RoomBean;
 		ActionForward forward = new ActionForward();
 		request.setAttribute("page", page);
 	   	request.setAttribute("article", article);
-   		forward.setPath("/room/qna_room_view.jsp");
+   		forward.setPath("/jsp/room/room_detail.jsp");
    		return forward;
 
 	 }
