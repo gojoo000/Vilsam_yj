@@ -15,31 +15,30 @@
 <html>
 <meta charset="UTF-8">
 <title>Vilsam | 상품리스트</title>
-
 <head>
-<script language="javascript">
-	function showPopup(num) {
-		window.open("/Vilsam_yj/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
+	<script language="javascript">
+		function showPopup(num) {
+			window.open("/Vilsam_yj/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
+		}
+		function showSellPopup(num) {
+			window.open("/Vilsam_yj/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
+		}
+	</script>
+	<style>
+	table {
+		text-align: center;
+		width: 100%;
+		margin: 0 auto;
+		text-align: center;
+		border-radius: 5px;
+		background-color: #ffffff;
 	}
-	function showSellPopup(num) {
-		window.open("/Vilsam_yj/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
+	
+	table td, tr {
+		border: 1px solid #cccccc;
+		padding: 2em;
 	}
-</script>
-<style>
-table {
-	text-align: center;
-	width: 100%;
-	margin: 0 auto;
-	text-align: center;
-	border-radius: 5px;
-	background-color: #ffffff;
-}
-
-table td, tr {
-	border: 1px solid #cccccc;
-	padding: 2em;
-}
-</style>
+	</style>
 </head>
 <body>
 	<jsp:include page="/jsp/common/header.jsp" flush="true"></jsp:include>
@@ -68,7 +67,8 @@ table td, tr {
 								<td>${product.product_name}</td>
 								<td>${product.product_price}</td>
 								<td>${product.product_jaego}</td>
-								<td><a href="/Vilsam_yj/productModifyForm.pro?PRODUCT_NUM=${product.product_num}">수정</a>
+								<td>
+									<a href="/Vilsam_yj/productModifyForm.pro?PRODUCT_NUM=${product.product_num}">수정</a>
 									|<a href="/Vilsam_yj/productDeletePro.pro?PRODUCT_NUM=${product.product_num}">삭제</a>
 								</td>
 								<td>
