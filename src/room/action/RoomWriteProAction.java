@@ -21,7 +21,7 @@ public class RoomWriteProAction implements Action {
 		ActionForward forward = null;
 		RoomBean roomBean = null;
 		String realFolder = "";
-		String saveFolder = "/upload";
+		String saveFolder = "/upload/room";
 		int fileSize = 5 * 1024 * 1024;
 		ServletContext context = request.getServletContext();
 		realFolder = context.getRealPath(saveFolder);
@@ -46,9 +46,9 @@ public class RoomWriteProAction implements Action {
 			forward = new ActionForward();
 			forward.setRedirect(true);
 			out.println("<script>");
-			out.println("alert('Í≥µÍ∞ÑÎì±Î°ù ÏôÑÎ£å!')");
+			out.println("alert('∞¯∞£¿Ã µÓ∑œµ«æ˙Ω¿¥œ¥Ÿ.')");
 			out.println("</script>");
-			forward.setPath("/RoomList.jsp");
+			forward.setPath("/Vilsam_yj/roomList.room");
 		}
 
 		return forward;

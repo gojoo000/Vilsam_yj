@@ -15,7 +15,7 @@ import vo.RoomBean;
 public class RoomSellAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		int room_num = Integer.parseInt((request.getParameter("room_num")));
+		String room_num = (request.getParameter("room_num"));
 		System.out.println(room_num);
 		RoomDetailService roomDetailService = new RoomDetailService();
 		RoomBean article = roomDetailService.getArticle(room_num);

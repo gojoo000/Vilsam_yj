@@ -54,7 +54,7 @@ public class RoomDAO {
 		return listCount;
 	}
 
-	// 怨듦컙 �벑濡�.
+	//방 등록
 	public int insertArticle(RoomBean article) {
 
 		PreparedStatement pstmt = null;
@@ -128,39 +128,39 @@ public class RoomDAO {
 
 	}
 
-	// 방 정보 조회
-	public RoomBean selectRoom(int room_num) throws SQLException {
+	//방 디테일 보기.
+		public RoomBean selectRoom(String room_num) throws SQLException {
 
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		RoomBean roomBean = null;
-		String sql = "select room.ROOM_NUM,ROOM_IMAGE, ROOM_CATEGORY,ROOM_NAME,ROOM_PRICE, SUM(INQTY) AS 'INQTY', ";
-		sql += " SUM(OUTQTY) AS 'OUTQTY' FROM room JOIN pdstock";
-		sql += " ON room.ROOM_NUM = pdstock.ROOM_NUM WHERE room.ROOM_NUM =? GROUP BY pdstock.ROOM_NUM";
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, room_num);
-			rs = pstmt.executeQuery();
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			RoomBean roomBean = null;
+			String sql = "select * from TB_ROOM WHERE ROOM_NUM=?";
+			
+			System.out.println(sql+room_num);
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, room_num);
+				rs = pstmt.executeQuery();
 
-			if (rs.next()) {
-				roomBean = new RoomBean();
-				roomBean.setRoom_num(rs.getInt("ROOM_NUM"));
-				roomBean.setRoom_image(rs.getString("ROOM_IMAGE"));
-				roomBean.setRoom_name(rs.getString("ROOM_NAME"));
-				roomBean.setRoom_price(rs.getInt("ROOM_PRICE"));
+				if (rs.next()) {
+					roomBean = new RoomBean();
+					roomBean.setRoom_num(rs.getInt("ROOM_NUM"));
+					roomBean.setRoom_image(rs.getString("ROOM_IMAGE"));
+					roomBean.setRoom_name(rs.getString("ROOM_NAME"));
+					roomBean.setRoom_price(rs.getInt("ROOM_PRICE"));
 
+				}
+				System.out.println(room_num);
+			} catch (Exception ex) {
+				System.out.println("getDetail 에러 : " + ex);
+			} finally {
+				rs.close();
+				pstmt.close();
 			}
-			System.out.println(room_num);
-		} catch (Exception ex) {
-			System.out.println("getDetail Error : " + ex);
-		} finally {
-			rs.close();
-			pstmt.close();
+
+			return roomBean;
+
 		}
-
-		return roomBean;
-
-	}
 
 
 	// 방 정보 수정

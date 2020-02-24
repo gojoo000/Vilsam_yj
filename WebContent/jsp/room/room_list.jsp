@@ -18,6 +18,9 @@
 	}
 	table td, tr {border: 1px solid #cccccc;padding: 2em;}
 	#section2 {height: auto;}
+	.section h1, .section h2 {font-size:20px;}
+	.discription {margin-bottom:15px;}
+	.discription p:first-child {margin-bottom:17px;margin-top:20px;font-size:15px;font-weight:700;}
 </style>
 </head>
 <body>
@@ -28,18 +31,18 @@
 			<div class="section" id="section2">
 				<div class="form form--signup">
 					<h2>방 리스트</h2>
-					<br>
 					<table class="outLine" style="width:80%;">
 						<c:forEach var="room" items="${articleList}">
 							<hr>
 							<ul class="list" style="">
   								<li class="list-item">
     							<div class="list-content"> 
-      								<h1>${room.room_name}</h1><br>
+      								<h1>${room.room_name}</h1>
       								<img src="/Vilsam_yj/upload/room/${room.room_image}" alt="" />
-      								<br><br><br>
-      								<p>Room Size : ${room.room_size}</p>
-      								<a href="#">대여료 : ${room.room_price}</a><br><br>
+      								<div class="discription">
+	      								<p>Room Size : ${room.room_size}</p>
+	      								<p>대여료 : ${room.room_price}</p>
+	      							</div>
     							</div>	
   								</li>
 								</ul>

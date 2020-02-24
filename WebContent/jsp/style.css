@@ -14,7 +14,8 @@
 
 
 body {
-	font-family: 'Sintony', sans-serif;
+	@import url('https://fonts.googleapis.com/css?family=Gothic+A1&display=swap');
+	font-family: 'Gothic A1' ;
 	font-size: 12px;
 	background: #ffffff;
 	line-height: 1;
@@ -90,9 +91,9 @@ nav.menu {
 .menu > ul li a:hover {
 	background:#444;
 	color: #fff;
-	transition-duration: 0.3s;
-	-moz-transition-duration: 0.3s;
-	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.2s;
+	-moz-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s;
 }
 .active{
 	background:#444 !important;

@@ -184,22 +184,22 @@ a {
 
 a:hover {
     color: #0056b3;
-    text-decoration: underline
+    text-decoration: underline;
 }
 
 a:not([href]):not([tabindex]) {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus,
 a:not([href]):not([tabindex]):hover {
     color: inherit;
-    text-decoration: none
+    text-decoration: none;
 }
 
 a:not([href]):not([tabindex]):focus {
-    outline: 0
+    outline: 0;
 }
 
 code,
@@ -629,10 +629,11 @@ pre code {
 
 .container-fluid {
     width: 100%;
-    padding-right: 15px;
+    padding: 20px;
+/*     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
-    margin-left: auto
+    margin-left: auto */
 }
 
 .row {

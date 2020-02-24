@@ -12,13 +12,11 @@ import vo.RoomBean;
 	 
 	 public ActionForward execute(HttpServletRequest request,HttpServletResponse response) throws Exception{ 
 	   	
-		int room_num=Integer.parseInt(request.getParameter("room_num"));
-		String page = request.getParameter("page");
+		String room_num=request.getParameter("room_num");
 		RoomDetailService roomDetailService = new RoomDetailService();
 		RoomBean article = roomDetailService.getArticle(room_num);
 		ActionForward forward = new ActionForward();
-		request.setAttribute("page", page);
-	   	request.setAttribute("article", article);
+	   	request.setAttribute("room", article);
    		forward.setPath("/jsp/room/room_detail.jsp");
    		return forward;
 

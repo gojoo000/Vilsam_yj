@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
+<link href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap" rel="stylesheet">
 <script src="${pageContext.request.contextPath }/js/newjs.js"></script>
 <script type="text/javascript">
 	function goHome() {

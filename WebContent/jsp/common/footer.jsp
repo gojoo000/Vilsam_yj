@@ -31,7 +31,9 @@
 <!-- Active js -->
 <script src="${pageContext.request.contextPath }/js/active.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
+<style>
+	.col-12 {padding-left: 75px;}
+</style>
 </head>
 
 <body>
@@ -55,24 +57,6 @@
                         </p>
                     </div>
                 </div>
-                <!-- Single Widget Area -->
-                <!--<div class="col-12 col-lg-8">
-                    <div class="single_widget_area">
-                        Footer Menu
-                        <div class="footer_menu">
-                            <nav class="navbar navbar-expand-lg justify-content-end">
-                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
-                                <div class="collapse navbar-collapse" id="footerNavContent">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item active">
-                                            <a class="nav-link" href="/index.jsp">Home</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </footer>

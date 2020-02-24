@@ -482,6 +482,7 @@ img {
 .main-content-wrapper {
     position: relative;
     z-index: 1;
+    margin-bottom : 100px;
     -webkit-transition-duration: 500ms;
     transition-duration: 500ms;
     -ms-flex-wrap: wrap;

@@ -10,7 +10,7 @@ import vo.RoomBean;
 
 public class RoomDetailService {
 
-	public RoomBean getArticle(int room_num) {
+	public RoomBean getArticle(String room_num) {
 		// TODO Auto-generated method stub
 		
 		RoomBean articleList = null;

@@ -27,27 +27,28 @@
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel='stylesheet' href='/Vilsam_yj/fullcalendar/fullcalendar.css'>
-<script src="${pageContext.request.contextPath }/js/fullcal/moment.min.js"></script>
-<script src='/Vilsam_yj/fullcalendar/fullcalendar.js'></script>
+<link rel='stylesheet' href='/Vilsam_yj/css/fullcalendar/fullcalendar.css'>
+<script src="/Vilsam_yj/js/fullcal/moment.min.js"></script>
+<script src='/Vilsam_yj/js/fullcalendar/fullcalendar.js'></script>
 
 <style>
-.main-content-wrapper{
-	width:100%;
-}
+.main-content-wrapper{width:100%;}
 .single-room-area{
-border-radius:20px;
+	border-radius:20px;
 	margin: 0 auto;
 	background-color:white;
-	    width: 80%;
-	    text-align:center;
+	width: 80%;
+	text-align:center;
 }
-.container-fluid{
-		margin-top:2%;
-}
-.room-meta-data{
-	
-}
+.container-fluid{margin-top:2%;}
+.room-meta-data {margin-bottom: 25px;}
+.room-meta-data h2 {font-size:25px;margin-top:10px;;margin-bottom:20px;}
+.room-meta-data img {margin-bottom: 20px;}
+.room-meta-data p {font-size:18px;}
+.room-meta-data p:first-child {margin-bottom:10px;}
+.room-meta-data p:last-child {font-weight:900;}
+
+.col-12 {padding-right:0;padding-left:0;margin:0 auto;}
 </style>
 <script>
 $(function() {
@@ -155,27 +156,18 @@ $(function() {
 						<!-- Room Meta Data -->
 						<div class="room-meta-data">
 							<form action="/Vilsam_yj/reservationWritePro.reser" id="reserForm">
-							 <input type="hidden" id="MEMBER_ID" name="MEMBER_ID" value="${MEMBER_ID}">
-								<img class="room-image" src="/Vilsam_yj/upload/room/${room.room_image}"> <br>
-								<br> <input type="hidden" id="room_num" name="room_num" value="${room.room_num }">
-								<div class="line"></div>
-								대여비
-								<p class="room-price">&nbsp;&nbsp;&#8361; ${room.room_price }</p>
-								<br>
-									<h2>공간 이름 :${room.room_name }</h2>
-								<br>
-						</div><br><br>
+							<input type="hidden" id="MEMBER_ID" name="MEMBER_ID" value="${MEMBER_ID}"/>
+							<h2>${room.room_name }</h2>
+							<img class="room-image" src="/Vilsam_yj/upload/room/${room.room_image}">
+							<input type="hidden" id="room_num" name="room_num" value="${room.room_num }">
+							<p>대여비</p>
+							<p class="room-price">&nbsp;&nbsp;&#8361; ${room.room_price }</p>
+						</div>
 						<h2>예약날짜 선택</h2>
 						<input type="text" id="reserDate" name="reserDate">
-						<br>
-						
 						<div id="calendar" style="max-width: 100%; display: inline-block; width:100%; height:100%; margin:5% auto;"></div>
-						<br><br>
-						<a href="#none" class="btst" id="btnReserChk">예약하기</a>
+						<a href="#none" class="button" id="btnReserChk">예약하기</a>
 						</form>
-					
-					
-
 					</div>
 				</div>
 			</div></div>

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8" import="java.util.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8" import="java.util.*"%>
 <%@ page import="dao.ProductDAO"%>
 <%@ page import="vo.ProductBean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -17,6 +16,7 @@
 <html lang="en">
 
 <head>
+<title>제품 상세보기</title>
 <style>
 	.main-content-wrapper{
 		width:100%;
@@ -27,11 +27,13 @@
 		background-color:white;
 	}
 	.container-fluid{
-			margin-top:2%;
+		margin-top:2%;
 	}
-	.product-meta-data{
-		
+	.product-meta-data img{
+		margin-bottom: 20px;
 	}
+	
+	.col-12, .col-lg-5 {padding-right:0;padding-left:0;margin:0 auto;}
 </style>
 
 </head>
@@ -45,7 +47,6 @@
 
 		<!-- Mobile Nav (max width 767px)-->
 		<%-- <c:set var="product" value="${articleList}" /> --%>
-		<%-- <c:set var="productBean" value="${articleList}" /> --%>
 		<!-- Product Details Area Start -->
 		<div class="single-product-area">
 			<div class="container-fluid">
@@ -54,19 +55,16 @@
 						<!-- Product Meta Data -->
 						<div class="product-meta-data">
 							<form action="/Vilsam_yj/sellWritePro.se">
-								<img id="PRODUCT_IMAGE"
-									src="/Vilsam_yj/upload/${product.product_image }"> <br>
-								<br> <input type="hidden" id="PRODUCT_NUM"
-									name="PRODUCT_NUM" value="${product.product_num }"> <input
-									type="hidden" id="MEMBER_ID" name="MEMBER_ID"
-									value="${MEMBER_ID}"> <input type="hidden" name="IO"
-									value="출고" />
+								<img class="product-image" src="/Vilsam_yj/upload/product/${product.product_image }"> <br>
+								<br><input type="hidden" id="PRODUCT_NUM" name="PRODUCT_NUM" value="${product.product_num }">
+									<input type="hidden" id="MEMBER_ID" name="MEMBER_ID" value="${MEMBER_ID}">
+									<input type="hidden" name="IO" value="출고" />
 								<div class="line"></div>
 								가격
 								<p class="product-price">&nbsp;&nbsp;&#8361; ${product.product_price }</p>
-								<br>
+								<br> <a href="#">
 									<h6>${product.product_name }</h6>
-								<br>
+								</a><br>
 								<p class="product_jaego">현재 재고 :
 									&nbsp;${product.product_jaego }개 남음</p>
 						</div>
@@ -89,6 +87,7 @@
 						<div class="short_overview my-5">
 							<p>상품설명</p>
 						</div>
+					
 						<!-- 	<button type="submit" name="addtocart" value="5" class="btst">장바구니
 								담기</button> -->
 						<input type="submit" value="주문하기" class="btst">
@@ -98,10 +97,10 @@
 				</div>
 			</div>
 		</div>
+
 		<!-- Product Details Area End -->
 	</div>
 
 	<jsp:include page="/jsp/common/footer.jsp" flush="true"></jsp:include>
 </body>
-
 </html>

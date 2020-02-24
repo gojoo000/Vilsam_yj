@@ -21,7 +21,7 @@ public class ProductWriteProAction implements Action {
 		ActionForward forward = null;
 		ProductBean productBean = null;
 		String realFolder = "";
-		String saveFolder = "/Vilsam_yj/upload";
+		String saveFolder = "/upload/product";
 		int fileSize = 5 * 1024 * 1024;
 		ServletContext context = request.getServletContext();
 		realFolder = context.getRealPath(saveFolder);
@@ -37,7 +37,6 @@ public class ProductWriteProAction implements Action {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		if (!isWriteSuccess) {
-
 			out.println("<script>");
 			out.println("alert('.')");
 			out.println("history.back();");
@@ -48,8 +47,8 @@ public class ProductWriteProAction implements Action {
 			out.println("<script>");
 			out.println("alert('상품이 등록되었습니다.')");
 			out.println("</script>");
-			/*forward.setPath("/index.jsp");*/
-			out.println("history.back();");
+			forward.setPath("/Vilsam_yj/index.jsp");
+			/*out.println("history.back();");*/
 		}
 
 		return forward;
