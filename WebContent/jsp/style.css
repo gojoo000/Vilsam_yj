@@ -89,11 +89,11 @@ nav.menu {
 	 padding: 0px 24px;
 }
 .menu > ul li a:hover {
-	background:#444;
+/* 	background:#444;
 	color: #fff;
 	transition-duration: 0.2s;
 	-moz-transition-duration: 0.2s;
-	-webkit-transition-duration: 0.2s;
+	-webkit-transition-duration: 0.2s; */
 }
 .active{
 	background:#444 !important;
@@ -293,3 +293,14 @@ margin-left: 5px;
   -webkit-animation-name: fadeIn;
   animation-name: fadeIn;
 }
+
+/* 마진, 패딩 값 */
+.mt5 {margin-top:5px !important;}
+.mt10 {margin-top:10px !important;}
+.mt15 {margin-top:15px !important;}
+.mt20 {margin-top:20px !important;}
+
+.mb5 {margin-bottom:5px !important;}
+.mb10 {margin-bottom:10px !important;}
+.mb15 {margin-bottom:15px !important;}
+.mb20 {margin-bottom:20px !important;}

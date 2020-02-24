@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/css/common.css=UTF-8
 encoding//src/controller/MemberFrontController.java=UTF-8
 encoding//src/dao/MemberDAO.java=UTF-8
 encoding//src/dao/RoomDAO.java=UTF-8

@@ -17,19 +17,22 @@
 <html lang="en">
 
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="UTF-8"/>
+<meta name="description" content=""/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 <!-- Title  -->
 <title>Room Details</title>
+
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel='stylesheet' href='/Vilsam_yj/css/fullcalendar/fullcalendar.css'>
+
+<link rel='stylesheet' href='/Vilsam_yj/css/fullcalendar.css'>
 <script src="/Vilsam_yj/js/fullcal/moment.min.js"></script>
-<script src='/Vilsam_yj/js/fullcalendar/fullcalendar.js'></script>
+<script src='/Vilsam_yj/js/fullcalendar.js'></script>
+
 
 <style>
 .main-content-wrapper{width:100%;}
@@ -49,6 +52,7 @@
 .room-meta-data p:last-child {font-weight:900;}
 
 .col-12 {padding-right:0;padding-left:0;margin:0 auto;}
+.inputbox {margin-bottom:15px;}
 </style>
 <script>
 $(function() {
@@ -64,6 +68,8 @@ $(function() {
 	        altFormat: "yy-mm-dd"
 	  });
 	});
+	
+
 /* 	$(function() {
 		$('#btnReset').click(function() {
 			$('#joinform').submit();
@@ -74,6 +80,7 @@ $(function() {
 		var reserck = 0;
 		
 		$("#btnReserChk").click(function() {
+	        
 	        //room_num 를 param.
 	        var room_num =  $("#room_num").val(); 
 	        var reser_date =  $("#reserDate").val();
@@ -100,6 +107,7 @@ $(function() {
 	            }
 	        });
 		  }); 
+		
 	
 		 var test = $("#room_num").val();
 		
@@ -131,12 +139,18 @@ $(function() {
 	                          start: obj.reser_date, //시작날짜 
 	                          allDay: true});
 	                    });
+	                    
 	                    callback(events); //뿌려주기
 	                }
 	            });
+	 
 	        }
+	       
 	    });
+	
 	});
+	
+	
 </script>
 </head>
 
@@ -164,18 +178,18 @@ $(function() {
 							<p class="room-price">&nbsp;&nbsp;&#8361; ${room.room_price }</p>
 						</div>
 						<h2>예약날짜 선택</h2>
-						<input type="text" id="reserDate" name="reserDate">
+						<input type="text" id="reserDate" name="reserDate" />
 						<div id="calendar" style="max-width: 100%; display: inline-block; width:100%; height:100%; margin:5% auto;"></div>
 						<a href="#none" class="button" id="btnReserChk">예약하기</a>
 						</form>
+
 					</div>
 				</div>
 			</div></div>
 		</div>
 
 		<!-- Room Details Area End -->
-
-	<jsp:include page="/jsp/common/footer.jsp" flush="true"></jsp:include>
+		<jsp:include page="/jsp/common/footer.jsp" flush="true"></jsp:include>
 </body>
 
 </html>

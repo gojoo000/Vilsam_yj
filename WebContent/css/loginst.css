@@ -53,6 +53,8 @@ hr {
 
 .alpha {
 	color: #333;
+	font-size: 24px;
+	margin-bottom: 20px;
 }
 
 .form {
@@ -78,7 +80,7 @@ hr {
 	border-radius: 3px;
 	padding: 1rem 0 1rem 3.2rem;
 	outline: none;
-	margin-bottom: 1rem;
+	margin-bottom: 2rem;
 	font-family: inherit;
 }
 
@@ -157,7 +159,7 @@ button:hover {background: #fff; border:1px solid #2d2d2d;color:#2d2d2d;transitio
 	text-decoration: none;
 }
 
-.bsts:hover {background: #fff; border:1px solid #2d2d2d;color:#2d2d2d;transition:all 0.3s;}
+.btst:hover {background: #fff; border:1px solid #2d2d2d;color:#2d2d2d;transition:all 0.3s;}
 
 .form-wrap .button:hover {
 	background: #0e778a;

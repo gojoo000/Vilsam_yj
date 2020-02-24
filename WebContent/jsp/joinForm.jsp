@@ -1,6 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +9,11 @@
 <link rel="icon"
 	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
 <!-- Core Style CSS-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/core-style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/jsp/style.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath }/css/loginst.css" />
-<link
-	href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css"
-	rel="stylesheet">
+<link rel="stylesheet" href="/Vilsam_yj/css/core-style.css" />
+<link rel="stylesheet" href="/Vilsam_yj/style.css" />
+<link rel="stylesheet" href="/Vilsam_yj/css/loginst.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<style>
-</style>
 <script>
 /* 	$(function() {
 		$('#btnReset').click(function() {
@@ -133,7 +122,7 @@
 			<!--Signup Section-->
 			<div class="section" id="section2">
 				<div class="form form--signup">
-					<h1 class="alpha">회원가입1</h1>
+					<h1 class="alpha">회원가입</h1>
 					<p>Vilsam에 오신것을 환영합니다.</p>
 					<section id="joinformArea">
 						<form name="joinform" action="/Vilsam_yj/memberJoinAction.me"
@@ -145,7 +134,7 @@
 									</td>
 									<td colspan="4">
 										<input type="text" name="MEMBER_ID"	id="MEMBER_ID" class="inputbox" />
-										<a href="#none" class="btst" id="btnIdChk">중복검사</a>
+										<a href="#none" class="btst mt10 mb10" id="btnIdChk">중복검사</a>
 									</td>
 								</tr>
 								<tr>
@@ -171,8 +160,7 @@
 								<tr>
 
 									<td><label for="MEMBER_ZIPCODE">우편번호 : </label></td>
-									<td><input class="form-control" name="MEMBER_ZIPCODE"
-										id="MEMBER_ZIPCODE" type="text" readonly="readonly"></td>
+									<td><input class="form-control form-wrap inputbox" name="MEMBER_ZIPCODE" id="MEMBER_ZIPCODE" type="text" readonly="readonly" onclick="execPostCode();"></td>
 									<td>
 										<button type="button" class="btn btn-default" onclick="execPostCode();">
 											<i class="fa fa-search"></i> 우편번호 찾기
@@ -205,8 +193,8 @@
 									
 								</tr>
 								<tr>
-									<td colspan="2"><a class="btst" id="btnJoin">회원가입</a></td>
-									<td colspan="2"><a class="btst" id="btnReset">다시작성</a></td>
+									<td colspan="2"><a class="btst mt10" id="btnJoin">회원가입</a></td>
+									<td colspan="2"><a class="btst mt10" id="btnReset">다시작성</a></td>
 								</tr>
 							</table>
 						</form>

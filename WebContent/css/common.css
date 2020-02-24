@@ -154,7 +154,7 @@ a {
     margin: 0;
 }
 
-/* 댓글 관련 CSS */
+/* �뙎湲� 愿��젴 CSS */
 .animated {
     -webkit-transition: height 0.2s;
     -moz-transition: height 0.2s;
@@ -169,7 +169,7 @@ a {
 
 
 
-/* 결제완료 페이지 CSS*/
+/* 寃곗젣�셿猷� �럹�씠吏� CSS*/
 
 .shape {
     border-style: solid;
@@ -195,7 +195,7 @@ a {
 }
 
 .offer:hover {
-    -webkit-transform: scale(1.1);
+/*     -webkit-transform: scale(1.1);
     -moz-transform: scale(1.1);
     -ms-transform: scale(1.1);
     -o-transform: scale(1.1);
@@ -203,7 +203,7 @@ a {
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; */
 }
 
 .shape {

@@ -8,13 +8,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
 <!-- Favicon  -->
-<link rel="icon" href="/Vilsam_yj/img/core-img/favicon.ico" />
+<link rel="icon" href="${pageContext.request.contextPath }/img/core-img/favicon.ico" />
 
 <!-- Core Style CSS-->
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/core-style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath }/jsp/style.css" />
 <link rel="stylesheet" href="${pageContext.request.contextPath }/css/loginst.css" />
-<link href="https://fonts.googleapis.com/css?family=Gothic+A1&display=swap" rel="stylesheet">
 <script src="${pageContext.request.contextPath }/js/newjs.js"></script>
 <script type="text/javascript">
 	function goHome() {
@@ -53,8 +52,7 @@
 <body>
 	<div class="container">
 		<header>
-		<div
-			style="text-align: center; margin-top: 25px; font-weight: bold; text-decoration: none;">
+		<div style="text-align: center; margin-top: 25px; font-weight: bold; text-decoration: none;">
 			<ul class="usernav">
 			<c:choose>
 			<c:when test="${MEMBER_ID eq null }" >
