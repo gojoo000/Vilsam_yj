@@ -40,7 +40,7 @@ public class StockWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('재고 등록완료!')");
+			out.println("alert('입력이 완료되었습니다.')");
 			out.println("self.close();");
 			out.println("</script>");
 		}
