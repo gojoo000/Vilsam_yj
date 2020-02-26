@@ -1,7 +1,6 @@
 ﻿package dao;
 
 import static db.JdbcUtil.close;
-import static db.JdbcUtil.getConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,10 +10,6 @@ import java.util.ArrayList;
 
 import javax.sql.DataSource;
 
-import com.oreilly.servlet.MultipartRequest;
-
-import vo.BoardBean;
-import vo.MemberBean;
 import vo.ProductBean;
 
 public class ProductDAO {
@@ -98,44 +93,48 @@ public class ProductDAO {
 	}
 
 	// 상품목록 보기.
-	public ArrayList<ProductBean> selectArticleList() {
+		public ArrayList<ProductBean> selectArticleList() {
 
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			// String sql="select * from product"; 
+			String sql = "SELECT S.PRODUCT_NUM,P.PRODUCT_IMAGE,P.PRODUCT_CATEGORY,P.PRODUCT_NAME, P.PRODUCT_PRICE";
+					sql += "	,(SELECT SUM(INQTY) FROM TB_PDSTOCK WHERE S.PRODUCT_NUM) AS 'INQTY', ";
+					sql += "	 (SELECT SUM(OUTQTY) FROM TB_PDSTOCK WHERE S.PRODUCT_NUM) AS 'OUTQTY' ";
+					sql += "	FROM TB_PRODUCT P, TB_PDSTOCK S ";
+					sql += "	WHERE P.PRODUCT_NUM=S.PRODUCT_NUM ";
+					sql += "	GROUP BY P.PRODUCT_NUM";
+			ArrayList<ProductBean> articleList = new ArrayList<ProductBean>();
+			ProductBean product = null;
+			
+			 //int startrow=(page-1)*10; //읽기 시작할 row 번호..
+			 
+			try {
+				pstmt = con.prepareStatement(sql);
+				rs = pstmt.executeQuery();
 
-		String sql = "SELECT * FROM TB_PRODUCT";
-		/*String sql = "SELECT P.PRODUCT_NUM,P.PRODUCT_IMAGE,P.PRODUCT_CATEGORY,P.PRODUCT_NAME, P.PRODUCT_PRICE";
-				sql += "	,SUM(INQTY) AS 'INQTY', SUM(OUTQTY) AS 'OUTQTY' ";
-				sql += "FROM TB_PRODUCT P, TB_PDSTOCK S ";
-				sql += "WHERE P.PRODUCT_NUM=S.PRODUCT_NUM ";
-				sql += "GROUP BY P.PRODUCT_NUM";*/
-		ArrayList<ProductBean> articleList = new ArrayList<ProductBean>();
-		ProductBean product = null;
+				while (rs.next()) {
+					product = new ProductBean();
+					product.setProduct_num(rs.getString("PRODUCT_NUM"));
+					product.setProduct_image(rs.getString("PRODUCT_IMAGE"));
+					product.setProduct_name(rs.getString("PRODUCT_NAME"));
+					product.setProduct_price(rs.getInt("PRODUCT_PRICE"));
+					product.setProduct_jaego((rs.getInt("INQTY") - rs.getInt("OUTQTY")));
+					product.setProduct_category(rs.getString("PRODUCT_CATEGORY"));
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			rs = pstmt.executeQuery();
+					articleList.add(product);
+				}
 
-			while (rs.next()) {
-				product = new ProductBean();
-				product.setProduct_num(rs.getString("PRODUCT_NUM"));
-				product.setProduct_image(rs.getString("PRODUCT_IMAGE"));
-				product.setProduct_name(rs.getString("PRODUCT_NAME"));
-				product.setProduct_price(rs.getInt("PRODUCT_PRICE"));
-				/*product.setProduct_jaego((rs.getInt("INQTY") - rs.getInt("OUTQTY")));*/
-				product.setProduct_category(rs.getString("PRODUCT_CATEGORY"));
-
-				articleList.add(product);
+			} catch (Exception ex) {
+				System.out.println("getList 에러 : " + ex);
+			} finally {
+				close(rs);
+				close(pstmt);
 			}
-		} catch (Exception ex) {
-			System.out.println("getList 에러 : " + ex);
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		return articleList;
 
-	}
+			return articleList;
+
+		}
 
 	// 글 내용 보기.
 	public ProductBean selectProduct(String product_num) throws SQLException {
@@ -143,12 +142,17 @@ public class ProductDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		ProductBean productBean = null;
-		String sql = "select TB_PRODUCT.PRODUCT_NUM,PRODUCT_IMAGE, PRODUCT_CATEGORY,PRODUCT_NAME,PRODUCT_PRICE, SUM(INQTY) AS 'INQTY', ";
-		sql += " SUM(OUTQTY) AS 'OUTQTY' FROM TB_PRODUCT JOIN TB_PDSTOCK";
-		sql += " ON TB_PDSTOCK.PRODUCT_NUM = TB_PDSTOCK.PRODUCT_NUM WHERE TB_PRODUCT.PRODUCT_NUM =? GROUP BY TB_PRODUCT.PRODUCT_NUM";
+		//String sql = "select TB_PRODUCT.PRODUCT_NUM,PRODUCT_IMAGE, PRODUCT_CATEGORY,PRODUCT_NAME,PRODUCT_PRICE, SUM(INQTY) AS 'INQTY', ";
+		String sql = "SELECT TB_PRODUCT.PRODUCT_NUM,PRODUCT_IMAGE, PRODUCT_CATEGORY,PRODUCT_NAME,PRODUCT_PRICE, ";
+		sql += "(SELECT SUM(INQTY) FROM TB_PDSTOCK WHERE PRODUCT_NUM=?) AS 'INQTY' ,";
+		sql += "(SELECT SUM(OUTQTY) FROM TB_PDSTOCK WHERE PRODUCT_NUM=?) AS 'OUTQTY' FROM TB_PRODUCT JOIN TB_PDSTOCK ";
+		sql += "ON TB_PDSTOCK.PRODUCT_NUM = TB_PDSTOCK.PRODUCT_NUM WHERE TB_PRODUCT.PRODUCT_NUM =? GROUP BY TB_PRODUCT.PRODUCT_NUM";
 		try {
 			pstmt = con.prepareStatement(sql);
+			
 			pstmt.setString(1, product_num);
+			pstmt.setString(2, product_num);
+			pstmt.setString(3, product_num);
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {

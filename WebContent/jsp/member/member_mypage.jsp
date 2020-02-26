@@ -66,10 +66,10 @@ h1 {
 			<div class="section" id="section2">
 				<div class="form form--signup">
 					<form name="loginform" id="Delform"
-						action="/memberDeleteAction.me" method="post"
+						action="/Vilsam_yj/memberDeleteAction.me" method="post"
 						class="form-wrap">
 						<h1 class="alpha">마이페이지</h1>
-						<p>회원마이페이지입니다.</p>
+						<p>${member.MEMBER_NAME}님의 마이페이지입니다.</p>
 						<br>
 						<br>
 						<table id="memberListArea" class="form-wrap">
@@ -98,15 +98,15 @@ h1 {
 							</tr>
 							<tr>
 								<td>주소 :</td>
-								<td>${member.MEMBER_ADDRESS1}</td>
+								<td>${member.MEMBER_ADDR1}</td>
 							</tr>
 											<tr>
 								<td>폰번호 :</td>
-								<td>${member.MEMBER_PHONECD}${member.MEMBER_PHONENUM}</td>
+								<td>${member.MEMBER_PHONE1}${member.MEMBER_PHONE2}</td>
 							</tr>
 									<tr>
 								<td>생년월일 :</td>
-								<td>${member.MEMBER_BIRTHYY}${member.MEMBER_BIRTHMM}${member.MEMBER_BIRTHDD}</td>
+								<td>${member.MEMBER_BIRTH}</td>
 							</tr>
 							<br>
 							<br>
@@ -114,9 +114,9 @@ h1 {
 						</table>
 						<br>
 						<br> <a
-							href="/memberDeleteAction.me?MEMBER_ID=${MEMBER_ID}"
+							href="/Vilsam_yj/memberDeleteAction.me?MEMBER_ID=${MEMBER_ID}"
 							class="btst">탈퇴하기</a> <a
-							href="/memberModiForm.me?MEMBER_ID=${MEMBER_ID}"
+							href="/Vilsam_yj/memberModiForm.me?MEMBER_ID=${MEMBER_ID}"
 							class="btst">수정하기</a> <br>
 						<br>
 						<br>
@@ -124,7 +124,7 @@ h1 {
 
 						<h1 class="alpha">주문내역</h1>
 						<br> <br> <a
-							href="/sellList.se?MEMBER_ID=${MEMBER_ID}" class="btst">내
+							href="/Vilsam_yj/sellList.se?MEMBER_ID=${MEMBER_ID}" class="btst">내
 							주문내역 보기</a> <br>
 					</form>
 

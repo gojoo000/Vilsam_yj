@@ -46,6 +46,7 @@ public class MemberDAO {
 	 * }
 	 */
 
+
 	public int checkMember(String memberId) {
 		String sql = "SELECT * FROM TB_MEMBER WHERE MEMBER_ID=?";
 		
@@ -56,7 +57,7 @@ public class MemberDAO {
 			pstmt.setString(1, memberId);
 			rs = pstmt.executeQuery();
 
-			System.out.println("#### "+memberId+"   "+sql);
+			//System.out.println("#### "+memberId+"   "+sql);
 			
 			if (rs.next()) {
 				flag = 1;
@@ -73,7 +74,6 @@ public class MemberDAO {
 			close(rs);
 			close(pstmt);
 		}
-
 		return flag;
 	}
 	
@@ -211,7 +211,7 @@ public class MemberDAO {
 				member.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
 				member.setMEMBER_TYPE(rs.getString("MEMBER_TYPE"));
 				member.setCRT_DT(rs.getDate("CRT_DT").toString());
-				System.out.println("################## "+rs.getString("CRT_DT"));
+				//System.out.println("################## "+rs.getString("CRT_DT"));
 			}
 		} catch (Exception ex) {
 			System.out.println("getDeatilMember 에러: " + ex);
@@ -243,37 +243,37 @@ public class MemberDAO {
 			return deleteCount;
 		}
 		
-		//�쉶�썝�젙蹂� �닔�젙�븯湲�
-		public int updateMember(MemberBean member) {
-				
-			int updateCount = 0;
-			PreparedStatement pstmt = null;
-			String sql = "update TB_MEMBER set MEMBER_PW=?, MEMBER_NAME=?, MEMBER_EMAIL=?, MEMBER_ZIPCODE=?, MEMBER_ADDR1=?,";
-					sql+= "  MEMBER_ADDR2=?, MEMBER_PHONE1=?, MEMBER_PHONE2=?, MEMBER_TYPE=? WHERE MEMBER_ID=?";
-			
-			try {
-				pstmt = con.prepareStatement(sql);
-				pstmt.setString(1, member.getMEMBER_PW());
-				pstmt.setString(2, member.getMEMBER_NAME());
-				pstmt.setString(3, member.getMEMBER_EMAIL());
-				pstmt.setString(4,member.getMEMBER_ZIPCODE());
-				pstmt.setString(5,member.getMEMBER_ADDR1());
-				pstmt.setString(6,member.getMEMBER_ADDR2());
-				pstmt.setString(7,member.getMEMBER_PHONE1());
-				pstmt.setString(8,member.getMEMBER_PHONE2());
-				pstmt.setString(9,member.getMEMBER_TYPE());
-				pstmt.setString(10,member.getMEMBER_ID());
-				
-				System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&3ddd&&&&&&  "+member.getMEMBER_ID()+"    "+sql);
-				updateCount = pstmt.executeUpdate();
-			}catch(Exception ex) {
-				System.out.println("memberModify : " + ex);
-			}finally {
-				close(pstmt);
-			}
-			
-			return updateCount;
-		}
+		//회원정보 수정
+				public int updateMember(MemberBean member) {
+						
+					int updateCount = 0;
+					PreparedStatement pstmt = null;
+					String sql = "update TB_MEMBER set MEMBER_PW=?, MEMBER_NAME=?, MEMBER_EMAIL=?, MEMBER_ZIPCODE=?, MEMBER_ADDR1=?,";
+							sql+= "  MEMBER_ADDR2=?, MEMBER_PHONE1=?, MEMBER_PHONE2=?, MEMBER_TYPE=? WHERE MEMBER_ID=?";
+					
+					try {
+						pstmt = con.prepareStatement(sql);
+						pstmt.setString(1, member.getMEMBER_PW());
+						pstmt.setString(2, member.getMEMBER_NAME());
+						pstmt.setString(3, member.getMEMBER_EMAIL());
+						pstmt.setString(4,member.getMEMBER_ZIPCODE());
+						pstmt.setString(5,member.getMEMBER_ADDR1());
+						pstmt.setString(6,member.getMEMBER_ADDR2());
+						pstmt.setString(7,member.getMEMBER_PHONE1());
+						pstmt.setString(8,member.getMEMBER_PHONE2());
+						pstmt.setString(9,member.getMEMBER_TYPE());
+						pstmt.setString(10,member.getMEMBER_ID());
+						
+						System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&3ddd&&&&&&  "+member.getMEMBER_ID()+"    "+sql);
+						updateCount = pstmt.executeUpdate();
+					}catch(Exception ex) {
+						System.out.println("memberModify : " + ex);
+					}finally {
+						close(pstmt);
+					}
+					
+					return updateCount;
+				}
 
-		
-	}
+				
+			}

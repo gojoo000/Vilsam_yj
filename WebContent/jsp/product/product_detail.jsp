@@ -45,8 +45,6 @@
 	<!-- ##### Main Content Wrapper Start ##### -->
 	<div class="main-content-wrapper">
 
-		<!-- Mobile Nav (max width 767px)-->
-		<%-- <c:set var="product" value="${articleList}" /> --%>
 		<!-- Product Details Area Start -->
 		<div class="single-product-area">
 			<div class="container-fluid">

@@ -1,12 +1,4 @@
-/action/
-/controller/
 /dao/
-/db/
-/member/
-/notice/
 /product/
-/reservation/
-/room/
-/sell/
-/stock/
-/vo/
+/controller/
+/member/

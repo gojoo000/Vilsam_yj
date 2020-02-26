@@ -6,6 +6,15 @@ import java.sql.Timestamp;
 public class SellListBean {
 	private int sellnum;
 	private String product_num;
+	private String product_name;
+	public String getProduct_name() {
+		return product_name;
+	}
+
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
+	}
+
 	private String member_id;
 	private int sell_count;
 	private String sell_yn;

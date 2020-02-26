@@ -32,7 +32,7 @@ public class MemberModiFormAction implements Action {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('ìˆ˜ì •í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!')");
+			out.println("alert('¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.')");
 			out.println("location.href='/jsp/loginForm.jsp'");
 			out.println("</script>");
 		}

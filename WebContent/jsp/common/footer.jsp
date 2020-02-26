@@ -47,7 +47,7 @@
                     <div class="single_widget_area">
                         <!-- Logo -->
                         <div class="footer-logo mr-50">
-                            <a href="index.html"><img src="${pageContext.request.contextPath }/img/core-img/logo2.png" alt=""></a>
+                            <a href="#"><img src="${pageContext.request.contextPath }/img/core-img/logo2.png" alt=""></a>
                         </div>
                         <!-- Copywrite Text -->
                         <p class="copywrite">

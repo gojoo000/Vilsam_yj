@@ -38,7 +38,7 @@ public class MemberViewAction implements Action {
 					forward.setPath("/jsp/member/member_mypage.jsp");
 				}
 			} else {
-//back()
+				//back()
 			}
 		}
 		return forward;

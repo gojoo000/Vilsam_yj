@@ -10,7 +10,7 @@
 	href="${pageContext.request.contextPath }/img/core-img/favicon.ico">
 <!-- Core Style CSS-->
 <link rel="stylesheet" href="/Vilsam_yj/css/core-style.css" />
-<link rel="stylesheet" href="/Vilsam_yj/style.css" />
+<!-- <link rel="stylesheet" href="/Vilsam_yj/style.css" /> -->
 <link rel="stylesheet" href="/Vilsam_yj/css/loginst.css" />
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
@@ -33,7 +33,7 @@
 	            /* async: true, */
 	            type : 'POST',
 	            data : 'MEMBER_ID='+userid,
-	            url : "/idChkAction.do",
+	            url : "/Vilsam_yj/idChkAction.do",
 	            
 	            /* contentType: "application/json; charset=UTF-8", */
 	            success : function(data) {

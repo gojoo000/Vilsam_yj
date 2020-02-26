@@ -36,11 +36,11 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 		if (command.equals("/memberLogin.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(true);
-			forward.setPath("/jsp/loginForm.jsp");
+			forward.setPath("/Vilsam_yj/jsp/loginForm.jsp");
 		} else if (command.equals("/jsp/memberJoin.me")) {
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("/jsp/joinForm.jsp");
+			forward.setPath("/Vilsam_yj/jsp/joinForm.jsp");
 		} else if (command.equals("/memberLoginAction.me")) { 
 			action = new MemberLoginAction();
 			try {
@@ -83,7 +83,6 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			// �쉶�썝�젙蹂� �닔�젙 �뤌
 		} else if (command.equals("/memberModiForm.me")) {
 			action = new MemberModiFormAction();
 			try {
@@ -92,7 +91,6 @@ public class MemberFrontController extends javax.servlet.http.HttpServlet {
 				e.printStackTrace();
 			}
 
-			// �쉶�썝�젙蹂댁닔�젙 �봽濡쒖꽭�뒪
 		} else if (command.equals("/memberModifyAction.me")) {
 			action = new MemberModifyAction();
 			try {

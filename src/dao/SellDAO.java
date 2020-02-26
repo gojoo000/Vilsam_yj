@@ -36,7 +36,7 @@ public class SellDAO {
 		this.con = con;
 	}
 
-	// 二쇰Ц�쓽 媛쒖닔 援ы븯湲�
+	
 	public int selectListCount() {
 		int listCount = 0;
 		PreparedStatement pstmt = null;
@@ -44,11 +44,11 @@ public class SellDAO {
 
 		try {
 			System.out.println("getConnection");
-			pstmt = con.prepareStatement("SELECT count(*) FROM SELLLIST"); // �쟾泥� 湲� 媛��닔 援ы븯湲�
+			pstmt = con.prepareStatement("SELECT count(*) FROM SELLLIST");
 			rs = pstmt.executeQuery();
 
 			if (rs.next()) {
-				listCount = rs.getInt(1); // �쟾泥� 湲� 媛��닔瑜� listCount�뿉 �븷�떦(���옣)
+				listCount = rs.getInt(1);
 			}
 		} catch (Exception e) {
 			System.out.println("getListCount �뿉�윭 : " + e);
@@ -59,7 +59,7 @@ public class SellDAO {
 		return listCount;
 	}
 
-	// 二쇰Ц �벑濡�.
+	
 	public int insertArticle(SellListBean article) {
 
 		PreparedStatement pstmt = null;
@@ -79,7 +79,7 @@ public class SellDAO {
 
 			sql = "insert into TB_SELLLIST (SELLNUM,PRODUCT_NUM,MEMBER_ID,SELL_COUNT,SELL_YN,SELL_DATE)";
 			sql += "values(?,?,?,?,'s',now())";
-//char(1)�삎�쑝濡�
+
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			pstmt.setString(2, article.getProduct_num());
@@ -95,7 +95,7 @@ public class SellDAO {
 			}
 
 		} catch (Exception ex) {
-			System.out.println("ProductInsert �뿉�윭 : " + ex);
+			System.out.println("ProductInsert 에러 : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -105,14 +105,13 @@ public class SellDAO {
 
 	}
 
-	//
 	public ArrayList<SellListBean> selectArticleList(String MEMBER_ID,String MEMBER_TYPE) {
-//if id媛� admin �씠硫� where 援щЦ �뾾怨� �쉶�썝�씠硫� where �엳怨� id=?臾쇱쓬�몴 �뾾�씠
+
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "SELECT S.SELLNUM, S.PRODUCT_NUM, S.MEMBER_ID,S.SELL_COUNT,S.SELL_YN,S.SELL_DATE";
-				sql += " FROM TB_PRODUCT P, TB_SELLLIST S ";
+		String sql = "SELECT S.SELLNUM, S.PRODUCT_NUM, S.MEMBER_ID,S.SELL_COUNT,S.SELL_YN,S.SELL_DATE, P.PRODUCT_NAME ";
+				sql += "FROM TB_PRODUCT P, TB_SELLLIST S ";
 				sql += "WHERE P.PRODUCT_NUM = S.PRODUCT_NUM ";
 		if (MEMBER_TYPE.equals("admin")) {
 			sql += "";
@@ -123,7 +122,7 @@ public class SellDAO {
 		
 
 
-System.out.println(sql);
+		System.out.println(sql);
 
 		ArrayList<SellListBean> articleList = new ArrayList<SellListBean>();
 		SellListBean sell = null;
@@ -139,6 +138,7 @@ System.out.println(sql);
 				sell = new SellListBean();
 				sell.setSellnum(rs.getInt("sellnum"));
 				sell.setProduct_num(rs.getString("PRODUCT_NUM"));
+				sell.setProduct_name(rs.getString("PRODUCT_NAME"));
 				sell.setMember_id(rs.getString("MEMBER_ID"));
 				sell.setSell_count(rs.getInt("sell_count"));
 				sell.setSell_yn(rs.getString("sell_yn"));
@@ -158,7 +158,6 @@ System.out.println(sql);
 
 	}
 
-	// 湲� �궡�슜 蹂닿린.
 	public SellListBean selectProduct(String product_num) throws SQLException {
 
 		PreparedStatement pstmt = null;

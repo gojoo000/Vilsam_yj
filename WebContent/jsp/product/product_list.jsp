@@ -1,15 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.*"%>
 <%@ page import="dao.ProductDAO"%>
-<%@ page import="vo.StockBean"%>
+<%@ page import="vo.ProductBean"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
-	ArrayList<StockBean> articleList = null;
+	ArrayList<ProductBean> articleList = null;
 
 	if (request.getAttribute("articleList") != null) {
-		articleList = (ArrayList<StockBean>) request.getAttribute("articleList");
+		articleList = (ArrayList<ProductBean>) request.getAttribute("articleList");
 	} else {
-		response.sendRedirect("/Vilsam_yj/productList.pro");
+		//response.sendRedirect("/Vilsam_yj/productList.pro");
 	}
 %>
 <html>
@@ -18,10 +18,10 @@
 <head>
 	<script language="javascript">
 		function showPopup(num) {
-			window.open("/Vilsam_yj/jsp/product/stockpop.jsp?num="+num,"","width=300, height=250, left=100, top=50");
+			window.open("/Vilsam_yj/jsp/product/stockpop.jsp?num="+num,"","width=500, height=150, left=0, top=50");
 		}
 		function showSellPopup(num) {
-			window.open("/Vilsam_yj/jsp/sell/prosellpop.jsp?num="+num,"", "width=3000, height=250, left=100, top=50");
+			window.open("/Vilsam_yj/jsp/sell/prosellpop.jsp?num="+num,"", "width=900, height=500, left=0, top=50");
 		}
 	</script>
 	<style>
@@ -51,12 +51,12 @@
 					<br>
 					<table width=80% border=1 class="outLine">
 						<tr class=m3>
-							<th>상품코드</th>
-							<th>카테고리코드</th>
+							<th>번호</th>
+							<th>카테고리</th>
 							<th>상품명</th>
 							<th>가격</th>
-							<th>수량</th>
-							<th>수정/삭제</th>
+							<!-- <th>수량</th> -->
+							<th>수정</th>
 							<th>입출고 입력</th>
 							<th>입출고내역</th>
 						</tr>
@@ -66,10 +66,10 @@
 								<td>${product.product_category}</td>
 								<td>${product.product_name}</td>
 								<td>${product.product_price}</td>
-								<td>${product.product_jaego}</td>
+								<%-- <td>${product.product_jaego}</td> --%>
 								<td>
 									<a href="/Vilsam_yj/productModifyForm.pro?PRODUCT_NUM=${product.product_num}">수정</a>
-									|<a href="/Vilsam_yj/productDeletePro.pro?PRODUCT_NUM=${product.product_num}">삭제</a>
+									<%-- |<a href="/Vilsam_yj/productDeletePro.pro?PRODUCT_NUM=${product.product_num}">삭제</a> --%>
 								</td>
 								<td>
 									<button type="button" onclick="showPopup('${product.product_num}');">입출고 관리</button>

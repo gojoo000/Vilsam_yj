@@ -15,7 +15,7 @@ import vo.MemberBean;
 /**
  * Servlet implementation class idChkAction
  */
-@WebServlet("/idChkAction.do")
+@WebServlet("/Vilsam_yj/idChkAction.do")
 public class IdChkAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -42,7 +42,7 @@ public class IdChkAction extends HttpServlet {
 		MemberChkService memberChkService = new MemberChkService();
 		chkResult = memberChkService.checkId(memberId);
 		
-		System.out.println("chkResult: "+chkResult);
+		//System.out.println("chkResult: "+chkResult);
 		
 		response.getWriter().println(chkResult);
     }

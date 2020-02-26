@@ -29,8 +29,8 @@ public class SellWriteProAction implements Action {
 		sellListBean.setMember_id(request.getParameter("MEMBER_ID"));
 		sellListBean.setSell_count(Integer.parseInt(request.getParameter("SELL_COUNT")));
 
-		// 날짜 변환
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd", Locale.KOREA);
+		// �궇吏� 蹂��솚
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
 		Date currentTime = new Date();
 		String[] mTime = (simpleDateFormat.format(currentTime)).split("-");
 		
@@ -68,7 +68,7 @@ public class SellWriteProAction implements Action {
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('주문 등록완료!')");
+			out.println("alert('二쇰Ц �벑濡앹셿猷�!')");
 			out.println("history.back();");
 			out.println("</script>");
 			/*

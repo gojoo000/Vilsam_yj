@@ -59,7 +59,7 @@
 			                <table class="table table-striped table-bordered table-hover" id="dataTables-example">
 			                    <thead>
 			                        <tr>
-			                        	<th style="text-align: center; vertical-align: middle; width: 30px;">상품코드번호</th>
+			                        	<!-- <th style="text-align: center; vertical-align: middle; width: 30px;">상품코드번호</th> -->
 			                            <th style="text-align: center; vertical-align: middle; width: 80px;">상품이름</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 30px;">상품단가</th>
 			                            <th style="text-align: center; vertical-align: middle; width: 50px;">상품수량</th>
@@ -69,7 +69,7 @@
 			                    <tbody>
 			                    	<c:forEach items="${dsSellList}" var="dsSellList" varStatus="sellIdx">
 			                         <tr>
-			                         	<td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_CODE}</td>                           
+			                         	<%-- <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_CODE}</td> --%>                           
 			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_NAME}</td>
 			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.PRODUCT_UNIT_PRICE}원</td>
 			                            <td style="text-align: center; vertical-align: middle;">${dsSellList.SELL_COUNT}</td>

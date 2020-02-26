@@ -47,7 +47,7 @@ table td, tr {
 					<table width=80% border=0 class="outLine">
 						<tr class=m3>
 							<th>주문번호</th>
-							<th>상품번호</th>
+							<th>상품이름</th>
 							<th>구매자</th>
 							<th>주문수량</th>
 							<th>상태</th>
@@ -56,7 +56,7 @@ table td, tr {
 						<c:forEach var="sellList" items="${articleList}">
 							<tr>
 								<td><a>${sellList.sellnum}</a></td>
-								<td>${sellList.product_num}</td>
+								<td>${sellList.product_name}</td>
 								<td>${sellList.member_id}</td>
 								<td>${sellList.sell_count}</td>
 								<td>${sellList.sell_yn}</td>

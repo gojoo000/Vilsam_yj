@@ -212,7 +212,6 @@ table {
 								</tr>
 								<tr>
 									<td><label for="MEMBER_BIRTHYY">생년월일 : </label></td>
-									
 									<td colspan="3">
 										<input type="text" name="MEMBER_BIRTH" size="6" id="MEMBER_BIRTH" maxlength="10" class="inputbox" value="${member.MEMBER_BIRTH }">
 									</td>

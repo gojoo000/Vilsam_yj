@@ -26,6 +26,8 @@ table {
 	text-align: center;
 	border-radius: 5px;
 }
+tr, td {margin-bottom:10px;}
+h1 {font-size:20px;}
 </style>
 <script>
 	/* 	$(function() {
@@ -54,26 +56,28 @@ table {
 		<c:set var="product" value="${articleList}" />
 		<form id="stockApply" action="/Vilsam_yj/stockWritePro.st" method="post">
 			<table>
-				<h1>재고관리</h1>
-				<h2>
-					제품번호 : <input type="text" value="${param.num }" id="PRODUCT_NUM" name="PRODUCT_NUM" readonly />
-				</h2>
+				<tr>
+					<td><h1>재고관리</h1></td>
+					<%-- <td>현재수량&nbsp;<input type="text" value="${param.io }" readonly /></td> --%>
+				</tr>
+				<tr>
+					<td><h2>제품번호</h2></td>
+					<td><input type="text" value="${param.num }" id="PRODUCT_NUM" name="PRODUCT_NUM" readonly /></td>
+				</tr>
 				<tr>
 					<td><select name="IO">
 							<option value="입고">입고 </option>
 							<option value="출고">출고 </option>
 					</select></td>
-					<td><input type="text" id="COUNT" name="COUNT" maxlength="5"></td>
+					<td><input type="text" id="COUNT" name="COUNT" maxlength="5" placeholder="수량을 입력하세요."></td>
 				</tr>
-
-			</table>
-			<table>
 				<tr>
-					<p>날짜</p>
+					<td><p>날짜</p></td>
 					<td><select class="inputbox" required="required" id="DATEYY" name="DATEYY">
 							<option value="2019">2019</option>
 							<option value="2020">2020</option>
-					</select></td>
+					</select>
+					</td>
 					<td><input type="text" name="DATEMM" size="6" id="DATEMM" maxlength="10" class="inputbox"></td>
 					<td><input type="text" name="DATEDD" size="6" id="DATEDD" maxlength="10" class="inputbox"></td>
 				</tr>
