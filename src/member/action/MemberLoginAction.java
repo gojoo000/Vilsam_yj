@@ -29,7 +29,7 @@ public class MemberLoginAction implements Action {
 		
 		if (loginResult == null) { /* || loginResult.equals("") */
 			out.println("<script>");
-			out.println("alert('ID/PW°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.');");
+			out.println("alert('ID/PWê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.');");
 			out.println("location.href='/Vilsam_yj/memberLogin.me';");
 			out.println("</script>");
 		} else {

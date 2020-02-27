@@ -34,18 +34,20 @@ public class MemberDeleteAction implements Action {
 		if (!isDeleteSuccess) {
 
 			out.println("<script>");
-			out.println("alert('�궘�젣�떎�뙣');");
+			out.println("alert('회원정보를 삭제할 수 없습니다.');");
 			out.println("history.back()");
 			out.println("</script>");
 			out.close();
 		} else {
 			out.println("<script>");
 			out.println("alert('삭제완료');");
+			out.println("history.back()");
 			out.println("</script>");
 
 			if (id.equals("admin")) {
 				out.println("<script>");
-				out.println("alert('�쉶�썝�궘�젣 �셿猷�!');");
+				out.println("alert('회원을 추방시켰습니다.');");
+				out.println("history.back()");
 				out.println("</script>");
 				forward.setPath("/Vilsam_yj/memberListAction.me");
 				/*
@@ -54,7 +56,11 @@ public class MemberDeleteAction implements Action {
 				 */
 			} else {
 				request.getSession().setAttribute("msg", "탈퇴처리 되었습니다.");
-				forward.setPath("/memberListAction.me");
+				out.println("<script>");
+				out.println("alert('회원정보를 삭제할 수 없습니다.');");
+				out.println("history.back()");
+				out.println("</script>");
+				//forward.setPath("/Vilsam_yj/memberListAction.me");
 			}
 		}
 

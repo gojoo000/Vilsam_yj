@@ -36,7 +36,7 @@ public class MemberModifyAction implements Action {
 			member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
 			member.setMEMBER_TYPE(request.getParameter("MEMBER_TYPE"));
 			
-			System.out.println("^^^^^"+request.getParameter("MEMBER_ID")+"^^");
+			//System.out.println("^^^^^"+request.getParameter("MEMBER_ID")+"^^");
 			
 			isModifySuccess = memberModifyProService.modifyMember(member);
 			System.out.println(isModifySuccess);
@@ -51,7 +51,11 @@ public class MemberModifyAction implements Action {
 			else {
 				forward = new ActionForward();
 				forward.setRedirect(true);
-				forward.setPath("./memberMypageAction.me?MEMBER_ID="+member.getMEMBER_ID());
+				out.println("<script>");
+				out.println("alert('회원정보 수정완료');");
+				forward.setPath("/Vilsam_yj/memberMypageAction.me?MEMBER_ID="+member.getMEMBER_ID());
+				out.println("history.back()");
+				out.println("</script>");
 				/*request.getSession().setAttribute("msg", "0");*/
 			}
 		

@@ -73,10 +73,6 @@ table tr, td {
 								<col width="10%">
 							</colgroup>
 							<thead>
-							<td><a href="/Vilsam_yj/memberViewAction.me?MEMBER_ID=${member.MEMBER_ID}">
-									${member.MEMBER_ID}
-								</a>
-							</td>
 								<tr>
 									<th>ID</th>
 									<th>이름</th>

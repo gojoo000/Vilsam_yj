@@ -51,7 +51,7 @@ public class SellDAO {
 				listCount = rs.getInt(1);
 			}
 		} catch (Exception e) {
-			System.out.println("getListCount �뿉�윭 : " + e);
+			System.out.println("getListCount 에러 : " + e);
 		} finally {
 			close(rs);
 			close(pstmt);
@@ -112,26 +112,23 @@ public class SellDAO {
 
 		String sql = "SELECT S.SELLNUM, S.PRODUCT_NUM, S.MEMBER_ID,S.SELL_COUNT,S.SELL_YN,S.SELL_DATE, P.PRODUCT_NAME ";
 				sql += "FROM TB_PRODUCT P, TB_SELLLIST S ";
-				sql += "WHERE P.PRODUCT_NUM = S.PRODUCT_NUM ";
+				//sql += "WHERE P.PRODUCT_NUM = S.PRODUCT_NUM ";
 		if (MEMBER_TYPE.equals("admin")) {
 			sql += "";
 		}else {
-			sql += " WHERE S.MEMBER_ID='"+MEMBER_ID+"'";	
-		}
+			//sql += " WHERE S.MEMBER_ID='"+MEMBER_ID+"'";	
+			sql += " WHERE S.MEMBER_ID='"+MEMBER_ID+"'";
 		//sql += " GROUP BY SELLLIST.PRODUCT_NUM";
-		
+		}
 
 
 		System.out.println(sql);
 
 		ArrayList<SellListBean> articleList = new ArrayList<SellListBean>();
 		SellListBean sell = null;
-		/*
-		 * int startrow=(page-1)*10; //�씫湲� �떆�옉�븷 row 踰덊샇..
-		 */
+
 		try {
 			pstmt = con.prepareStatement(sql);
-			/* pstmt.setInt(1, startrow); */
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -148,7 +145,7 @@ public class SellDAO {
 			}
 
 		} catch (Exception ex) {
-			System.out.println("getList �뿉�윭 : " + ex);
+			System.out.println("getList 에러 : " + ex);
 		} finally {
 			close(rs);
 			close(pstmt);

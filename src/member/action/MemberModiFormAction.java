@@ -24,15 +24,16 @@ public class MemberModiFormAction implements Action {
 			MemberInfoService memberInfoService = new MemberInfoService();
 			MemberBean memberInfo = new MemberBean();
 			memberInfo = memberInfoService.getMemberInfo(id);
-			request.setAttribute("memberInfo", memberInfo);
-			forward.setPath("/jsp/member/member_modiFY.jsp");
+			request.setAttribute("member", memberInfo);
+			forward.setPath("/jsp/member/member_info.jsp");
+			//forward.setPath("/jsp/member/member_modiFY.jsp");
 			request.getSession().setAttribute("msg", "0");
 
 		} else {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('¼öÁ¤ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.')");
+			out.println("alert('ìˆ˜ì •í•  ê¶Œí•œì´ ì—†ìŠµë‹ˆë‹¤!')");
 			out.println("location.href='/jsp/loginForm.jsp'");
 			out.println("</script>");
 		}

@@ -63,12 +63,12 @@ public class SellWriteProAction implements Action {
 
 		if (!isWriteSuccess) {
 			out.println("<script>");
-			out.println("alert('.')");
+			out.println("alert('주문이 불가능합니다.')");
 			out.println("history.back();");
 			out.println("</script>");
 		} else {
 			out.println("<script>");
-			out.println("alert('二쇰Ц �벑濡앹셿猷�!')");
+			out.println("alert('주문이 완료되었습니다.')");
 			out.println("history.back();");
 			out.println("</script>");
 			/*

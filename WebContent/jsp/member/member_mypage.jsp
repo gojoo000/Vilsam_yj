@@ -115,9 +115,9 @@ h1 {
 						<br>
 						<br> <a
 							href="/Vilsam_yj/memberDeleteAction.me?MEMBER_ID=${MEMBER_ID}"
-							class="btst">탈퇴하기</a> <a
-							href="/Vilsam_yj/memberModiForm.me?MEMBER_ID=${MEMBER_ID}"
-							class="btst">수정하기</a> <br>
+							class="btst">탈퇴하기</a>
+							<%-- <a href="/Vilsam_yj/memberModiForm.me?MEMBER_ID=${MEMBER_ID}" class="btst">수정하기</a> --%>
+							<a href="/Vilsam_yj/memberModiForm.me?MEMBER_ID=${member.MEMBER_ID}" class="btst">수정하기</a> <br>
 						<br>
 						<br>
 

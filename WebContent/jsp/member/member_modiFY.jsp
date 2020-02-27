@@ -16,7 +16,7 @@
 
 	MemberBean member = (MemberBean) request.getAttribute("memberInfo");
 	
-/* 	String msg = (String)session.getAttribute("msg");
+/*   	String msg = (String)session.getAttribute("msg");
 	
 	if(msg != null)
 	{
@@ -26,7 +26,7 @@
 			out.println("<script>alert('회원가입을 축하드립니다.');</script>");
 		
 		session.removeAttribute("msg");
-	} */
+	}  */
 %>
 <!DOCTYPE html>
 <html>
@@ -34,6 +34,9 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>회원정보 수정하기</title>
+<style>
+	.section {width:100% !important;}
+</style>
 </head>
 
 <body>
@@ -57,7 +60,10 @@
 					</tr>
 					<tr>
 						<td><label for="MEMBER_GENDER">성별 : </label></td>
-						<td>${memberInfo.MEMBER_GENDER }</td>
+						<td>
+							<c:if test="${memberInfo.MEMBER_GENDER eq'1'}">남자</c:if>
+							<c:if test="${memberInfo.MEMBER_GENDER eq'2'}">남자</c:if>
+						</td>
 					</tr>
 					<tr>
 						<td><label for="MEMBER_EMAIL">이메일 주소 : </label></td>
@@ -98,7 +104,7 @@
 						<td colspan="2"><input type="text" name="MEMBER_BIRTH" size="6" id="MEMBER_BIRTH" maxlength="10" class="inputbox" value="${memberInfo.MEMBER_BIRTH }"></td>
 					</tr>
 					<tr>
-						<td colspan="3"><a href="/Vilsam_yj/memberModifyAction.me?MEMBER_ID=${member.MEMBER_ID}" class="btst">수정완료</a></td>
+						<td colspan="3"><a href="/Vilsam_yj/memberModifyAction.me?MEMBER_ID=${memberInfo.MEMBER_ID}" class="btst">수정완료</a></td>
 					</tr>
 				</table>
 			</form>

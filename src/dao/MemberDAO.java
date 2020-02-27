@@ -223,7 +223,7 @@ public class MemberDAO {
 		return member;
 	}
 
-	//�쉶�썝 �궘�젣�븯湲�
+	//회원 정보 삭제
 		public int deleteMember(String id) {
 			
 			PreparedStatement pstmt = null;
@@ -235,7 +235,7 @@ public class MemberDAO {
 				pstmt.setString(1, id);
 				deleteCount = pstmt.executeUpdate();
 			}catch(Exception ex) {
-				System.out.println("memberDelete �뿉�윭 : " + ex);
+				System.out.println("회원정보를 삭제할 수 없습니다. " + ex);
 			}finally {
 				close(pstmt);
 			}
@@ -264,7 +264,7 @@ public class MemberDAO {
 						pstmt.setString(9,member.getMEMBER_TYPE());
 						pstmt.setString(10,member.getMEMBER_ID());
 						
-						System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&3ddd&&&&&&  "+member.getMEMBER_ID()+"    "+sql);
+						//System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&3ddd&&&&&&  "+member.getMEMBER_ID()+"    "+sql);
 						updateCount = pstmt.executeUpdate();
 					}catch(Exception ex) {
 						System.out.println("memberModify : " + ex);

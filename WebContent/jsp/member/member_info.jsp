@@ -123,19 +123,21 @@ table {
 			<!--Signup Section-->
 			<div class="section" id="section2">
 				<div class="form form--signup">
-
 					<section id="infoformArea">
-						<form name="modifyForm" id="modifyForm" action="/memberModifyAction.me" method="post" class="form-wrap">
+						<form name="modifyForm" id="modifyForm" action="/Vilsam_yj/memberModifyAction.me" method="post" class="form-wrap">
 							<h2>회원정보</h2>
 							<table>
 								<tr>
-									<td><label for="MEMBER_TYPE">등급 </label></td>
-									<td colspan="4">
-									<select id="MEMBER_TYPE" name="MEMBER_TYPE">
-										<option value="admin"<c:if test="${member.MEMBER_TYPE eq 'admin'}">selected</c:if>>관리자</option>
-										<option value="user"<c:if test="${member.MEMBER_TYPE eq 'user'}">selected</c:if>>유저</option>
-									</select>
-									</td>
+									<c:choose>
+										<c:when test="${MEMBER_TYPE eq 'admin' }">
+											<select id="MEMBER_TYPE" name="MEMBER_TYPE">
+												<option value="admin"<c:if test="${member.MEMBER_TYPE eq 'admin'}">selected</c:if>>관리자</option>
+												<option value="user"<c:if test="${member.MEMBER_TYPE eq 'user'}">selected</c:if>>유저</option>
+											</select>
+										</c:when>
+										<c:otherwise>
+										</c:otherwise>
+									</c:choose>
 								</tr>
 								
 								<tr>
@@ -216,9 +218,6 @@ table {
 										<input type="text" name="MEMBER_BIRTH" size="6" id="MEMBER_BIRTH" maxlength="10" class="inputbox" value="${member.MEMBER_BIRTH }">
 									</td>
 								</tr>
-
-
-
 							</table>
 						</form>
 					</section>
@@ -230,8 +229,8 @@ table {
 							<a href="/memberDeleteAction.me?MEMBER_ID=${member.MEMBER_ID}" class="btst">탈퇴하기</a>
 						</c:otherwise>
 					</c:choose>
-						<a href="#none" id="btnModify" class="btst">수정하기</a>
-						<a href="/memberListAction.me" id="btnBack" class="btst">돌아가기</a>
+						<a href="#none" id="btnModify" class="btst">수정완료</a>
+						<a href="javascript:window.history.back();" id="" class="btst">돌아가기</a>
 				</div>
 			</div>
 		</div>
